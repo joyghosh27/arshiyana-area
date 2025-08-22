@@ -1,0 +1,1820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="images/logo2.png.png">
+    <title>Project Estimate - Ashiyana Design World | Premium Interior Design Cost Calculator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <meta name="description" content="Get instant cost estimates for your premium interior design project with Ashiyana Design World's advanced calculator. Free consultation and detailed quotations.">
+    
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --success-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --warning-gradient: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            --danger-gradient: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            
+            --text-primary: #1a202c;
+            --text-secondary: #4a5568;
+            --text-light: #718096;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f7fafc;
+            
+            --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 10px 25px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 25px 50px rgba(0, 0, 0, 0.15);
+            
+            --border-radius-sm: 8px;
+            --border-radius-md: 16px;
+            --border-radius-lg: 24px;
+            --border-radius-xl: 32px;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--bg-primary);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 clamp(1rem, 4vw, 2rem);
+            width: 100%;
+        }
+
+        /* Header Styles */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .header.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .navbar {
+            padding: clamp(0.8rem, 2vw, 1.2rem) 0;
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 clamp(1rem, 4vw, 2rem);
+        }
+
+        .logo {
+            height: clamp(40px, 6vw, 60px);
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+            display: flex;              
+            align-items: center;
+        }
+
+        .logo img {
+            height: 200%;
+            width: auto;
+            object-fit: contain;
+        }
+
+           .nav-menu {
+    display: flex;
+    gap: 3rem;
+    list-style: none;
+    padding: 0;
+}
+
+  .nav-link {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            position: relative;
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+            white-space: nowrap;
+        }
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 0%;
+    height: 3px;
+    background: linear-gradient(90deg, rgba(255,0,0,0) 0%, red 50%, rgba(255,0,0,0) 100%);
+    box-shadow: 0 0 10px rgb(202, 125, 125), 0 0 20px rgb(123, 216, 69), 0 0 30px rgb(168, 55, 121);
+    transition: width 0.5s ease;
+    border-radius: 4px;
+    animation: none;
+}
+
+.nav-link:hover::after {
+    width: 120%;
+    animation: laser-glow 0.2s ease forwards;
+}
+@keyframes laser-glow {
+    0% {
+        box-shadow: 0 0 2px red;
+    }
+    50% {
+        box-shadow: 0 0 5px rgb(213, 216, 190), 0 0 10px rgb(202, 193, 139);
+    }
+    100% {
+        box-shadow: 0 0 10px red, 0 0 15px red, 0 0 20px red;
+    }
+}
+.nav-link:hover {
+    color: var(--glow-color);
+}
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: clamp(0.5rem, 2vw, 1rem);
+            flex-shrink: 0;
+        }
+        .theme-toggle {
+            background: none;
+            border: none;
+            padding: clamp(0.6rem, 2vw, 0.8rem);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: var(--text-secondary);
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+        }
+
+        .theme-toggle:hover {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            transform: scale(1.1);
+        }
+
+        .call-now-btn {
+            background: var(--primary-gradient);
+            color: white;
+            text-decoration: none;
+            padding: clamp(0.6rem, 2vw, 0.8rem) clamp(1rem, 3vw, 2rem);
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: clamp(0.8rem, 2vw, 1rem);
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-md);
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .call-now-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+            padding: 0.5rem;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--text-primary);
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+
+        /* Estimate Page Styles */
+        .estimate-page {
+            padding: clamp(6rem, 15vw, 10rem) 0 clamp(4rem, 10vw, 6rem);
+            background: 
+                linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%),
+                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.3) 0%, transparent 50%);
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .estimate-page::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="estimateGrid" width="50" height="50" patternUnits="userSpaceOnUse"><path d="M 50 0 L 0 0 0 50" fill="none" stroke="rgba(102,126,234,0.1)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23estimateGrid)"/></svg>');
+            animation: gridMove 20s linear infinite;
+            opacity: 0.5;
+        }
+
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        .estimate-hero {
+            text-align: center;
+            margin-bottom: clamp(4rem, 8vw, 6rem);
+            padding: clamp(2rem, 5vw, 4rem);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(25px);
+            border-radius: var(--border-radius-xl);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: var(--shadow-xl);
+            position: relative;
+            overflow: hidden;
+            z-index: 2;
+        }
+
+        .estimate-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(102, 126, 234, 0.1), transparent);
+            animation: rotate 15s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .estimate-hero > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        .estimate-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: clamp(1rem, 3vw, 1.5rem);
+            line-height: 1.3;
+            letter-spacing: -0.02em;
+            padding-top: 0.2em;
+            padding-bottom: 0.2em;
+        }
+
+        .estimate-hero .highlight {
+            background: linear-gradient(135deg, #ef4444 0%, #f97316 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+        }
+
+        .estimate-hero .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ef4444, #f97316);
+            border-radius: 2px;
+            animation: underlineGrow 2s ease-out;
+        }
+
+        @keyframes underlineGrow {
+            0% { width: 0; left: 50%; }
+            100% { width: 100%; left: 0; }
+        }
+
+        .estimate-hero p {
+            font-size: clamp(1.1rem, 3vw, 1.6rem);
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .estimate-main {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: clamp(2rem, 5vw, 4rem);
+            align-items: start;
+            position: relative;
+            z-index: 2;
+        }
+
+        .calculator-section,
+        .estimate-summary {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(25px);
+            border-radius: var(--border-radius-xl);
+            padding: clamp(2rem, 5vw, 3rem);
+            box-shadow: var(--shadow-xl);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .calculator-section::before,
+        .estimate-summary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.05), transparent);
+            transition: left 0.8s ease;
+        }
+
+        .calculator-section:hover::before,
+        .estimate-summary:hover::before {
+            left: 100%;
+        }
+
+        .calculator-section > *,
+        .estimate-summary > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: clamp(2rem, 4vw, 2.5rem);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #ef4444);
+            border-radius: 2px;
+        }
+
+        /* Calculator Form */
+        .calculator-form {
+            display: flex;
+            flex-direction: column;
+            gap: clamp(1.5rem, 3vw, 2rem);
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 0.8rem;
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: clamp(1rem, 2.5vw, 1.1rem);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .form-group label i {
+            color: #667eea;
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: clamp(1rem, 3vw, 1.2rem) clamp(1rem, 3vw, 1.5rem);
+            border: 2px solid rgba(0, 0, 0, 0.1);
+            border-radius: var(--border-radius-md);
+            font-size: clamp(1rem, 2.5vw, 1.1rem);
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.9);
+            font-family: inherit;
+            font-weight: 500;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            background: white;
+        }
+
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: clamp(1rem, 2vw, 1.5rem);
+            margin-top: 1rem;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: clamp(1rem, 3vw, 1.2rem);
+            background: rgba(102, 126, 234, 0.04);
+            border-radius: var(--border-radius-md);
+            border: 2px solid rgba(102, 126, 234, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .checkbox-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.08), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .checkbox-item:hover::before {
+            left: 100%;
+        }
+
+        .checkbox-item:hover {
+            background: rgba(102, 126, 234, 0.08);
+            border-color: rgba(102, 126, 234, 0.25);
+            transform: translateY(-2px);
+        }
+
+        .checkbox-item > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            accent-color: #667eea;
+            cursor: pointer;
+        }
+
+        .checkbox-item label {
+            margin: 0;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: clamp(0.9rem, 2vw, 1rem);
+        }
+
+        .checkbox-item.selected {
+            background: rgba(102, 126, 234, 0.15);
+            border-color: rgba(102, 126, 234, 0.4);
+            box-shadow: var(--shadow-md);
+        }
+
+        .calculate-btn {
+            background: var(--primary-gradient);
+            color: white;
+            border: none;
+            padding: clamp(1.2rem, 3vw, 1.5rem) clamp(2rem, 5vw, 3rem);
+            border-radius: 50px;
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-lg);
+            margin-top: clamp(1.5rem, 3vw, 2rem);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .calculate-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        /* Estimate Summary */
+        .estimate-summary {
+            position: sticky;
+            top: clamp(6rem, 15vw, 8rem);
+            height: fit-content;
+        }
+
+        .cost-breakdown {
+            margin-bottom: clamp(2rem, 4vw, 2.5rem);
+        }
+
+        .cost-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: clamp(1rem, 3vw, 1.2rem) 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            font-size: clamp(1rem, 2.5vw, 1.1rem);
+        }
+
+        .cost-item:last-child {
+            border-bottom: none;
+        }
+
+        .cost-item .service {
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .cost-item .price {
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        .total-cost {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(255, 255, 255, 0.9) 100%);
+            padding: clamp(1.5rem, 4vw, 2rem);
+            border-radius: var(--border-radius-lg);
+            border: 2px solid rgba(102, 126, 234, 0.3);
+            margin-bottom: clamp(2rem, 4vw, 2.5rem);
+            text-align: center;
+        }
+
+        .total-cost .label {
+            font-size: clamp(1.1rem, 3vw, 1.3rem);
+            color: var(--text-secondary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .total-cost .amount {
+            font-size: clamp(2rem, 5vw, 2.8rem);
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea 0%, #ef4444 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+
+        .estimate-actions {
+            display: flex;
+            flex-direction: column;
+            gap: clamp(1rem, 2vw, 1.5rem);
+        }
+
+        .action-btn {
+            padding: clamp(1rem, 3vw, 1.2rem) clamp(1.5rem, 4vw, 2rem);
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            text-decoration: none;
+            text-align: center;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            border: none;
+            cursor: pointer;
+        }
+
+        .action-btn.primary {
+            background: var(--success-gradient);
+            color: white;
+            box-shadow: var(--shadow-md);
+        }
+
+        .action-btn.secondary {
+            background: rgba(102, 126, 234, 0.1);
+            color: #667eea;
+            border: 2px solid rgba(102, 126, 234, 0.3);
+        }
+
+        .action-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Pricing Info */
+        .pricing-info {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(25px);
+            border-radius: var(--border-radius-xl);
+            padding: clamp(2rem, 5vw, 3rem);
+            margin-top: clamp(3rem, 6vw, 4rem);
+            box-shadow: var(--shadow-xl);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            position: relative;
+            z-index: 2;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: clamp(2rem, 4vw, 3rem);
+            margin-top: clamp(2rem, 4vw, 2.5rem);
+        }
+
+        .pricing-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: var(--border-radius-lg);
+            padding: clamp(2rem, 4vw, 2.5rem);
+            text-align: center;
+            border: 2px solid rgba(102, 126, 234, 0.1);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .pricing-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.08), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .pricing-card:hover::before {
+            left: 100%;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+            border-color: rgba(102, 126, 234, 0.3);
+        }
+
+        .pricing-card > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        .pricing-card h3 {
+            font-size: clamp(1.3rem, 3vw, 1.6rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: clamp(1rem, 2vw, 1.5rem);
+        }
+
+        .pricing-card .price-range {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            font-weight: 800;
+            color: #667eea;
+            margin-bottom: clamp(1rem, 2vw, 1.5rem);
+        }
+
+        .pricing-card .description {
+            color: var(--text-secondary);
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            line-height: 1.6;
+        }
+
+        .legal-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .legal-links a {
+            color: #cbd5e0;
+            text-decoration: none;
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
+            transition: color 0.3s ease;
+        }
+
+        .legal-links a:hover {
+            color: white;
+        }
+
+        /* Dropdown Styles */
+.dropdown {
+    position: relative;
+}
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    box-shadow: var(--shadow-md);
+    list-style: none;
+    padding: 0.5rem 0;
+    border-radius: var(--border-radius-sm);
+    z-index: 1000;
+}
+.dropdown-menu li {
+    padding: 0;
+}
+.dropdown-menu li a {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: var(--text-primary);
+    text-decoration: none;
+    white-space: nowrap;
+}
+.dropdown-menu li a:hover {
+    background: var(--bg-secondary);
+}
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* Dark mode dropdown fix */
+[data-theme="dark"] .dropdown-menu {
+    background: #2d3748; /* dark bg */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .dropdown-menu li a {
+    color: #f7fafc; /* light text */
+}
+
+[data-theme="dark"] .dropdown-menu li a:hover {
+    background: #4a5568; /* dark hover bg */
+}
+
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+            color: white;
+            padding: clamp(3rem, 6vw, 4rem) 0 clamp(1.5rem, 3vw, 2rem);
+            position: relative;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: clamp(2rem, 4vw, 3rem);
+            margin-bottom: clamp(2rem, 4vw, 3rem);
+            position: relative;
+            z-index: 2;
+            text-align: left;
+        }
+
+        .footer-section h3,
+        .footer-section h4 {
+            margin-bottom: clamp(1rem, 2vw, 1.5rem);
+            color: white;
+        }
+
+        .footer-section h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.5rem, 3vw, 1.8rem);
+            font-weight: 700;
+        }
+
+        .footer-section h4 {
+            font-size: clamp(1.1rem, 2.5vw, 1.2rem);
+            font-weight: 600;
+        }
+
+        .footer-section p {
+            color: #cbd5e0;
+            line-height: 1.6;
+            margin-bottom: clamp(0.8rem, 2vw, 1rem);
+            font-size: clamp(0.9rem, 2vw, 1rem);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section ul li a {
+            color: #cbd5e0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: clamp(0.9rem, 2vw, 1rem);
+        }
+
+        .footer-section ul li a:hover {
+            color: white;
+        }
+
+        .contact-info p {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+            margin-bottom: clamp(0.8rem, 2vw, 1rem);
+        }
+
+        .contact-info i {
+            color: #667eea;
+            width: 20px;
+            flex-shrink: 0;
+            margin-top: 0.2rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: clamp(0.8rem, 2vw, 1rem);
+            margin-bottom: clamp(1.5rem, 3vw, 2rem);
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .social-links a {
+            width: clamp(45px, 8vw, 50px);
+            height: clamp(45px, 8vw, 50px);
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+        }
+
+        .social-links a:hover {
+            background: #667eea;
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: clamp(1.5rem, 3vw, 2rem);
+            text-align: center;
+            color: #cbd5e0;
+            position: relative;
+            z-index: 2;
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-floating {
+            position: fixed;
+            bottom: clamp(1.5rem, 4vw, 2rem);
+            right: clamp(1.5rem, 4vw, 2rem);
+            z-index: 1000;
+        }
+
+        .whatsapp-btn {
+            width: clamp(60px, 12vw, 70px);
+            height: clamp(60px, 12vw, 70px);
+            background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            text-decoration: none;
+            box-shadow: var(--shadow-xl);
+            transition: all 0.3s ease;
+            animation: whatsappPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes whatsappPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.15);
+            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.4);
+        }
+
+        /* Mobile Navigation */
+        .nav-menu.mobile-active {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .nav-menu.mobile-active.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 1024px) {
+            .estimate-main {
+                grid-template-columns: 1fr;
+                gap: clamp(2rem, 4vw, 3rem);
+            }
+
+            .estimate-summary {
+                position: static;
+                order: -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .nav-menu.mobile-active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .header-actions .call-now-btn span {
+                display: none;
+            }
+
+            .checkbox-group {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .contact-info p {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .estimate-hero,
+            .calculator-section,
+            .estimate-summary,
+            .pricing-info {
+                margin-left: -0.5rem;
+                margin-right: -0.5rem;
+            }
+
+            .checkbox-item {
+                padding: clamp(0.8rem, 3vw, 1rem);
+            }
+        }
+
+        /* Dark Mode */
+        [data-theme="dark"] {
+            --text-primary: #f7fafc;
+            --text-secondary: #e2e8f0;
+            --text-light: #cbd5e0;
+            --bg-primary: #1a202c;
+            --bg-secondary: #2d3748;
+        }
+
+        [data-theme="dark"] .header {
+            background: rgba(26, 32, 44, 0.95);
+        }
+
+        [data-theme="dark"] .estimate-hero,
+        [data-theme="dark"] .calculator-section,
+        [data-theme="dark"] .estimate-summary,
+        [data-theme="dark"] .pricing-info {
+            background: rgba(45, 55, 72, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        [data-theme="dark"] .form-group input,
+        [data-theme="dark"] .form-group select {
+            background: rgba(51, 65, 85, 0.8);
+            border: 2px solid rgba(71, 85, 105, 0.6);
+            color: var(--text-primary);
+        }
+
+        [data-theme="dark"] .form-group input:focus,
+        [data-theme="dark"] .form-group select:focus {
+            border-color: #60a5fa;
+            box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.2);
+            background: rgba(51, 65, 85, 0.9);
+        }
+
+        [data-theme="dark"] .checkbox-item,
+        [data-theme="dark"] .pricing-card {
+            background: rgba(51, 65, 85, 0.8);
+            border: 2px solid rgba(71, 85, 105, 0.6);
+        }
+
+        [data-theme="dark"] .checkbox-item:hover,
+        [data-theme="dark"] .pricing-card:hover {
+            background: rgba(51, 65, 85, 0.9);
+            border-color: rgba(96, 165, 250, 0.4);
+        }
+
+        [data-theme="dark"] .checkbox-item.selected {
+            background: rgba(96, 165, 250, 0.2);
+            border-color: rgba(96, 165, 250, 0.5);
+        }
+
+        [data-theme="dark"] .total-cost {
+            background: linear-gradient(135deg, rgba(96, 165, 250, 0.15) 0%, rgba(45, 55, 72, 0.9) 100%);
+            border: 2px solid rgba(96, 165, 250, 0.3);
+        }
+
+        [data-theme="dark"] .hamburger span {
+            background: var(--text-primary);
+        }
+
+        [data-theme="dark"] .nav-menu.mobile-active {
+            background: rgba(26, 32, 44, 0.98);
+        }
+
+        /* Scroll Animations */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .scroll-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Footer Phone and Email Yellow */
+.contact-info p a[href^="tel:"],
+.contact-info p a[href^="mailto:"] {
+    color: #fbbf24 !important;
+    font-weight: 600;
+}
+
+.contact-info p a[href^="tel:"]:hover,
+.contact-info p a[href^="mailto:"]:hover {
+    color: #f59e0b !important;
+}
+    </style>
+</head>
+<body data-theme="light">
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="index.html" class="logo-link">
+                    <div class="logo">
+                        <img src="logo.png" alt="Ashiyana Design World">
+                    </div>
+                </a>
+                <ul class="nav-menu" id="navMenu">
+    <li><a href="index.html" class="nav-link active">Home</a></li>
+    <li><a href="about.html" class="nav-link">About</a></li>
+    <li><a href="overview.html" class="nav-link">Login</a></li>
+    <li class="dropdown">
+        <a href="#" class="nav-link">More <i class="fas fa-caret-down"></i></a>
+        <ul class="dropdown-menu">
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="estimate.html">Estimate</a></li>
+            <li><a href="careers.html">Careers</a></li>
+        </ul>
+    </li>
+</ul>
+
+                <div class="header-actions">
+                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <a href="tel:+918900758833" class="call-now-btn">
+                        <i class="fas fa-phone"></i> <span>Call Now</span>
+                    </a>
+                </div>
+                <div class="hamburger" id="hamburger" aria-label="Toggle mobile menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Estimate Page Content -->
+    <section class="estimate-page">
+        <div class="container">
+            <div class="estimate-hero scroll-reveal">
+                <h1>Project <span class="highlight">Estimate</span></h1>
+                <p>Get an instant cost estimate for your dream interior design project. Our advanced calculator provides accurate pricing based on your specific requirements and preferences.</p>
+            </div>
+
+            <div class="estimate-main">
+                <!-- Calculator Section -->
+                <div class="calculator-section scroll-reveal">
+                    <h2 class="section-title">Premium Cost Calculator</h2>
+                    
+                    <!-- <form class="calculator-form" id="calculatorForm">
+                        <div class="form-group">
+                            <label for="projectType">
+                                <i class="fas fa-home"></i>
+                                Project Type *
+                            </label>
+                            <select id="projectType" name="projectType" required>
+                                <option value="">Select project type</option>
+                                <option value="residential">Residential Interior</option>
+                                <option value="commercial">Commercial Space</option>
+                                <option value="office">Office Design</option>
+                                <option value="restaurant">Restaurant/Cafe</option>
+                                <option value="retail">Retail Store</option>
+                                <option value="renovation">Home Renovation</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="areaSize">
+                                <i class="fas fa-ruler-combined"></i>
+                                Total Area (sq ft) *
+                            </label>
+                            <input type="number" id="areaSize" name="areaSize" min="100" max="10000" required placeholder="Enter area in square feet">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="rooms">
+                                <i class="fas fa-door-open"></i>
+                                Number of Rooms
+                            </label>
+                            <select id="rooms" name="rooms">
+                                <option value="1">1 Room</option>
+                                <option value="2">2 Rooms</option>
+                                <option value="3">3 Rooms</option>
+                                <option value="4">4 Rooms</option>
+                                <option value="5"> Rooms</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="designStyle">
+                                <i class="fas fa-palette"></i>
+                                Design Style Preference
+                            </label>
+                            <select id="designStyle" name="designStyle">
+                                <option value="modern">Modern Contemporary</option>
+                                <option value="traditional">Traditional</option>
+                                <option value="minimalist">Minimalist</option>
+                                <option value="luxury">Luxury Premium</option>
+                                <option value="industrial">Industrial</option>
+                                <option value="scandinavian">Scandinavian</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="budgetRange">
+                                <i class="fas fa-rupee-sign"></i>
+                                Budget Range
+                            </label>
+                            <select id="budgetRange" name="budgetRange">
+                                <option value="economy">Economy (₹500-800/sq ft)</option>
+                                <option value="standard">Standard (₹800-1200/sq ft)</option>
+                                <option value="premium">Premium (₹1200-2000/sq ft)</option>
+                                <option value="luxury">Luxury (₹2000+/sq ft)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>
+                                <i class="fas fa-tools"></i>
+                                Services Required
+                            </label>
+                            <div class="checkbox-group">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="interiorDesign" name="services" value="interior-design">
+                                    <label for="interiorDesign">Interior Design</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="falseCeiling" name="services" value="false-ceiling">
+                                    <label for="falseCeiling">False Ceiling</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="flooring" name="services" value="flooring">
+                                    <label for="flooring">Flooring & Tiling</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="electrical" name="services" value="electrical">
+                                    <label for="electrical">Electrical Work</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="plumbing" name="services" value="plumbing">
+                                    <label for="plumbing">Plumbing</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="painting" name="services" value="painting">
+                                    <label for="painting">Painting</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="woodwork" name="services" value="woodwork">
+                                    <label for="woodwork">Custom Woodwork</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="windows" name="services" value="windows">
+                                    <label for="windows">Windows & Doors</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="calculate-btn">
+                            <i class="fas fa-calculator"></i>
+                            Calculate Premium Estimate
+                        </button>
+                    </form> -->
+                    <form class="calculator-form" id="calculatorForm">
+  <!-- Project Type -->
+  <div class="form-group">
+    <label for="projectType">
+      <i class="fas fa-home"></i>
+      Project Type *
+    </label>
+    <select id="projectType" name="projectType" required>
+      <option value="">Select project type</option>
+      <option value="residential">Residential Interior</option>
+      <option value="commercial">Commercial Space</option>
+      <option value="office">Office Design</option>
+      <option value="restaurant">Restaurant/Cafe</option>
+      <option value="retail">Retail Store</option>
+      <option value="renovation">Home Renovation</option>
+    </select>
+  </div>
+
+  <!-- Total Area -->
+  <div class="form-group">
+    <label for="areaSize">
+      <i class="fas fa-ruler-combined"></i>
+      Total Area (sq ft) *
+    </label>
+    <input
+      type="number"
+      id="areaSize"
+      name="areaSize"
+      min="100"
+      max="10000"
+      required
+      placeholder="Enter area in square feet"
+    >
+  </div>
+
+  <!-- Number of Rooms -->
+  <div class="form-group">
+    <label for="rooms">
+      <i class="fas fa-door-open"></i>
+      Number of Rooms
+    </label>
+    <select id="rooms" name="rooms">
+      <option value="1">1 Room</option>
+      <option value="2">2 Rooms</option>
+      <option value="3">3 Rooms</option>
+      <option value="4">4 Rooms</option>
+      <option value="5">5 Rooms</option>
+    </select>
+  </div>
+
+  <!-- Design Style -->
+  <div class="form-group">
+    <label for="designStyle">
+      <i class="fas fa-palette"></i>
+      Design Style Preference
+    </label>
+    <select id="designStyle" name="designStyle">
+      <option value="modern">Modern Contemporary</option>
+      <option value="traditional">Traditional</option>
+      <option value="minimalist">Minimalist</option>
+      <option value="luxury">Luxury Premium</option>
+      <option value="industrial">Industrial</option>
+      <option value="scandinavian">Scandinavian</option>
+    </select>
+  </div>
+
+  <!-- Budget Range -->
+  <div class="form-group">
+    <label for="budgetRange">
+      <i class="fas fa-rupee-sign"></i>
+      Budget Range
+    </label>
+    <select id="budgetRange" name="budgetRange">
+      <option value="economy">Economy (₹500–800/sq ft)</option>
+      <option value="standard">Standard (₹800–1200/sq ft)</option>
+      <option value="premium">Premium (₹1200–2000/sq ft)</option>
+      <option value="luxury">Luxury (₹2000+/sq ft)</option>
+    </select>
+  </div>
+
+  <!-- Services Required -->
+  <fieldset class="form-group">
+    <legend>
+      <i class="fas fa-tools"></i>
+      Services Required
+    </legend>
+    <div class="checkbox-group">
+      <div class="checkbox-item">
+        <input type="checkbox" id="interiorDesign" name="services" value="interior-design">
+        <label for="interiorDesign">Interior Design</label>
+      </div>
+      <div class="checkbox-item">
+        <input type="checkbox" id="falseCeiling" name="services" value="false-ceiling">
+        <label for="falseCeiling">False Ceiling</label>
+      </div>
+      <div class="checkbox-item">
+        <input type="checkbox" id="flooring" name="services" value="flooring">
+        <label for="flooring">Flooring & Tiling</label>
+      </div>
+      <div class="checkbox-item">
+        <input type="checkbox" id="electrical" name="services" value="electrical">
+        <label for="electrical">Electrical Work</label>
+      </div>
+      <div class="checkbox-item">
+        <input type="checkbox" id="plumbing" name="services" value="plumbing">
+        <label for="plumbing">Plumbing</label>
+      </div>
+      <div class="checkbox-item">
+        <input type="checkbox" id="painting" name="services" value="painting">
+        <label for="painting">Painting</label>
+      </div>
+      <div class="checkbox-item">
+        <input type="checkbox" id="woodwork" name="services" value="woodwork">
+        <label for="woodwork">Custom Woodwork</label>
+      </div>
+      <div class="checkbox-item">
+        <input type="checkbox" id="windows" name="services" value="windows">
+        <label for="windows">Windows & Doors</label>
+      </div>
+    </div>
+  </fieldset>
+
+  <!-- Submit Button -->
+  <button type="submit" class="calculate-btn">
+    <i class="fas fa-calculator"></i>
+    Calculate Premium Estimate
+  </button>
+</form>
+
+                </div>
+
+                <!-- Estimate Summary -->
+                <div class="estimate-summary scroll-reveal">
+                    <h2 class="section-title">Cost Breakdown</h2>
+                    
+                    <div class="cost-breakdown" id="costBreakdown">
+                        <div class="cost-item">
+                            <span class="service">Base Interior Design</span>
+                            <span class="price">₹0</span>
+                        </div>
+                        <div class="cost-item">
+                            <span class="service">Selected Services</span>
+                            <span class="price">₹0</span>
+                        </div>
+                        <div class="cost-item">
+                            <span class="service">Material Cost</span>
+                            <span class="price">₹0</span>
+                        </div>
+                        <div class="cost-item">
+                            <span class="service">Labor Charges</span>
+                            <span class="price">₹0</span>
+                        </div>
+                    </div>
+
+                    <div class="total-cost">
+                        <div class="label">Estimated Total Cost</div>
+                        <div class="amount" id="totalAmount">₹0</div>
+                    </div>
+
+                    <div class="estimate-actions">
+                        <a href="contact.html" class="action-btn primary">
+                            <i class="fas fa-calendar-check"></i>
+                            Book Free Consultation
+                        </a>
+                        <button class="action-btn secondary" id="shareEstimate">
+                            <i class="fas fa-share-alt"></i>
+                            Share Estimate
+                        </button>
+                        <a href="https://wa.me/918900758833" target="_blank" class="action-btn secondary">
+                            <i class="fab fa-whatsapp"></i>
+                            Discuss on WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pricing Information -->
+            <div class="pricing-info scroll-reveal">
+                <h2 class="section-title">Our Pricing Packages</h2>
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <h3>Economy Package</h3>
+                        <div class="price-range">₹500-800/sq ft</div>
+                        <p class="description">Perfect for budget-conscious projects with essential design elements and quality materials.</p>
+                    </div>
+                    
+                    <div class="pricing-card">
+                        <h3>Standard Package</h3>
+                        <div class="price-range">₹800-1200/sq ft</div>
+                        <p class="description">Balanced approach with premium materials, modern designs, and comprehensive services.</p>
+                    </div>
+                    
+                    <div class="pricing-card">
+                        <h3>Premium Package</h3>
+                        <div class="price-range">₹1200-2000/sq ft</div>
+                        <p class="description">High-end materials, custom designs, and luxury finishes for sophisticated spaces.</p>
+                    </div>
+                    
+                    <div class="pricing-card">
+                        <h3>Luxury Package</h3>
+                        <div class="price-range">₹2000+/sq ft</div>
+                        <p class="description">Ultra-premium materials, bespoke designs, and exclusive craftsmanship for elite projects.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Ashiyana Design World</h3>
+                    <p>Leading the industry in premium interior design, innovative architecture, and exceptional craftsmanship. We transform spaces into extraordinary experiences that exceed expectations and inspire for generations.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Premium Services</h4>
+                    <ul>
+                        <li><a href="index.html">Luxury Interior Design</a></li>
+                        <li><a href="about.html">Innovative Architecture</a></li>
+                        <li><a href="contact.html">Design Consultation</a></li>
+                        <li><a href="estimate.html">Project Estimation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Information</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> PC Sen Rd, opposite of Arambagh Girls High School, Arambag, West Bengal 712601</p>
+                        <p><i class="fas fa-phone"></i> <a href="tel:+918900758833">+91 89007 58833</a></p>
+                        <p><i class="fas fa-envelope"></i> <a href="mailto:support@ashiyanadesignworld.in">support@ashiyanadesignworld.in</a></p>
+                        <p><i class="fas fa-clock"></i> Mon - Sat: 9:00 AM - 7:00 PM</p>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect & Legal</h4>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/ashiyana_design?igsh=cmFjcWt3bXRhdXEx" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/channel/UC7GRLyy0otq8pdhM7J-BQ9w" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+                        <a href="https://www.facebook.com/share/18mjuRc7bb/" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.linkedin.com/company/ashiyana-design-world/" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                    <div class="legal-links">
+                        <a href="privacy.html">Privacy Policy</a>
+                        <a href="terms.html">Terms & Conditions</a>
+                        <a href="vastu.html">Vastu Disclaimer</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Ashiyana Design World. All rights reserved. | Powered by Smart Software World</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <div class="whatsapp-floating">
+        <a href="https://wa.me/918900758833?text=Hi! I used your cost calculator and I'm interested in discussing my project estimate. Please provide me with detailed information." target="_blank" class="whatsapp-btn" aria-label="Contact via WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Header scroll effect
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 100) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            // Mobile menu toggle
+            const hamburger = document.getElementById('hamburger');
+            const navMenu = document.getElementById('navMenu');
+            
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('mobile-active');
+                
+                if (navMenu.classList.contains('mobile-active')) {
+                    setTimeout(() => {
+                        navMenu.classList.add('show');
+                    }, 10);
+                } else {
+                    navMenu.classList.remove('show');
+                }
+                
+                document.body.style.overflow = navMenu.classList.contains('mobile-active') ? 'hidden' : '';
+            });
+
+            // Close mobile menu when clicking on nav links
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('mobile-active', 'show');
+                    document.body.style.overflow = '';
+                });
+            });
+
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('mobile-active', 'show');
+                    document.body.style.overflow = '';
+                }
+            });
+
+            // Theme toggle
+            const themeToggle = document.getElementById('themeToggle');
+            const body = document.body;
+            
+            themeToggle.addEventListener('click', () => {
+                const currentTheme = body.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                body.setAttribute('data-theme', newTheme);
+                
+                const icon = themeToggle.querySelector('i');
+                icon.className = newTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+                
+                localStorage.setItem('theme', newTheme);
+            });
+
+            // Load saved theme
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            body.setAttribute('data-theme', savedTheme);
+            const themeIcon = themeToggle.querySelector('i');
+            themeIcon.className = savedTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+
+            // Scroll reveal animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('revealed');
+                    }
+                });
+            }, observerOptions);
+
+            const scrollElements = document.querySelectorAll('.scroll-reveal');
+            scrollElements.forEach(el => observer.observe(el));
+
+            // Checkbox selection handling
+            const checkboxItems = document.querySelectorAll('.checkbox-item');
+            checkboxItems.forEach(item => {
+                const checkbox = item.querySelector('input[type="checkbox"]');
+                
+                item.addEventListener('click', (e) => {
+                    if (e.target !== checkbox) {
+                        checkbox.checked = !checkbox.checked;
+                    }
+                    
+                    if (checkbox.checked) {
+                        item.classList.add('selected');
+                    } else {
+                        item.classList.remove('selected');
+                    }
+                    
+                    calculateEstimate();
+                });
+                
+                checkbox.addEventListener('change', () => {
+                    if (checkbox.checked) {
+                        item.classList.add('selected');
+                    } else {
+                        item.classList.remove('selected');
+                    }
+                    calculateEstimate();
+                });
+            });
+
+            // Cost calculation logic
+            const form = document.getElementById('calculatorForm');
+            const totalAmountElement = document.getElementById('totalAmount');
+            const costBreakdown = document.getElementById('costBreakdown');
+
+            // Service pricing (per sq ft)
+            const servicePricing = {
+                'interior-design': 200,
+                'false-ceiling': 150,
+                'flooring': 180,
+                'electrical': 120,
+                'plumbing': 100,
+                'painting': 80,
+                'woodwork': 250,
+                'windows': 200
+            };
+
+            // Budget multipliers
+            const budgetMultipliers = {
+                'economy': 0.8,
+                'standard': 1.0,
+                'premium': 1.5,
+                'luxury': 2.2
+            };
+
+            // Project type multipliers
+            const projectMultipliers = {
+                'residential': 1.0,
+                'commercial': 1.3,
+                'office': 1.2,
+                'restaurant': 1.4,
+                'retail': 1.3,
+                'renovation': 0.9
+            };
+
+            function calculateEstimate() {
+                const formData = new FormData(form);
+                const areaSize = parseInt(formData.get('areaSize')) || 0;
+                const projectType = formData.get('projectType') || 'residential';
+                const budgetRange = formData.get('budgetRange') || 'standard';
+                const selectedServices = formData.getAll('services');
+
+                if (areaSize === 0) {
+                    updateCostDisplay(0, 0, 0, 0);
+                    return;
+                }
+
+                // Base cost calculation
+                const budgetMultiplier = budgetMultipliers[budgetRange];
+                const projectMultiplier = projectMultipliers[projectType];
+                
+                // Base interior design cost
+                const baseDesignCost = areaSize * 300 * budgetMultiplier * projectMultiplier;
+                
+                // Additional services cost
+                let servicesCost = 0;
+                selectedServices.forEach(service => {
+                    if (servicePricing[service]) {
+                        servicesCost += areaSize * servicePricing[service] * budgetMultiplier;
+                    }
+                });
+
+                // Material cost (40% of total)
+                const materialCost = (baseDesignCost + servicesCost) * 0.4;
+                
+                // Labor cost (25% of total)
+                const laborCost = (baseDesignCost + servicesCost) * 0.25;
+                
+                // Total cost
+                const totalCost = baseDesignCost + servicesCost + materialCost + laborCost;
+
+                updateCostDisplay(baseDesignCost, servicesCost, materialCost, laborCost);
+            }
+
+            function updateCostDisplay(baseDesign, services, materials, labor) {
+                const total = baseDesign + services + materials + labor;
+                
+                // Update breakdown
+                const costItems = costBreakdown.querySelectorAll('.cost-item');
+                costItems[0].querySelector('.price').textContent = `₹${Math.round(baseDesign).toLocaleString('en-IN')}`;
+                costItems[1].querySelector('.price').textContent = `₹${Math.round(services).toLocaleString('en-IN')}`;
+                costItems[2].querySelector('.price').textContent = `₹${Math.round(materials).toLocaleString('en-IN')}`;
+                costItems[3].querySelector('.price').textContent = `₹${Math.round(labor).toLocaleString('en-IN')}`;
+                
+                // Update total with animation
+                animateNumber(totalAmountElement, total);
+            }
+
+            function animateNumber(element, targetValue) {
+                const startValue = parseInt(element.textContent.replace(/[₹,]/g, '')) || 0;
+                const duration = 1000;
+                const startTime = performance.now();
+                
+                function updateNumber(currentTime) {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    
+                    // Easing function
+                    const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+                    const currentValue = startValue + (targetValue - startValue) * easeOutQuart;
+                    
+                    element.textContent = `₹${Math.round(currentValue).toLocaleString('en-IN')}`;
+                    
+                    if (progress < 1) {
+                        requestAnimationFrame(updateNumber);
+                    }
+                }
+                
+                requestAnimationFrame(updateNumber);
+            }
+
+            // Form submission
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                calculateEstimate();
+                
+                // Scroll to summary
+                document.querySelector('.estimate-summary').scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            });
+
+            // Real-time calculation on input changes
+            const inputs = form.querySelectorAll('input, select');
+            inputs.forEach(input => {
+                input.addEventListener('change', calculateEstimate);
+                if (input.type === 'number') {
+                    input.addEventListener('input', calculateEstimate);
+                }
+            });
+
+            // Share estimate functionality
+            const shareBtn = document.getElementById('shareEstimate');
+            shareBtn.addEventListener('click', function() {
+                const totalCost = document.getElementById('totalAmount').textContent;
+                const areaSize = document.getElementById('areaSize').value;
+                const projectType = document.getElementById('projectType').value;
+                
+                const shareText = `Check out my interior design estimate from Ashiyana Design World!\n\nProject: ${projectType}\nArea: ${areaSize} sq ft\nEstimated Cost: ${totalCost}\n\nGet your estimate: ${window.location.href}`;
+                
+                if (navigator.share) {
+                    navigator.share({
+                        title: 'My Interior Design Estimate',
+                        text: shareText,
+                        url: window.location.href
+                    });
+                } else {
+                    // Fallback to clipboard
+                    navigator.clipboard.writeText(shareText).then(() => {
+                        alert('Estimate details copied to clipboard!');
+                    });
+                }
+            });
+
+            // Initialize with default calculation
+            setTimeout(calculateEstimate, 500);
+        });
+    </script>
+</body>
+</html>

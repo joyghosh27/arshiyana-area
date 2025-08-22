@@ -1,0 +1,2219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="images/logo2.png.png">
+    <title>Careers - Ashiyana Design World | Join Our Premium Design Team</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <meta name="description" content="Join Ashiyana Design World's premium design team. Explore exciting career opportunities in interior design, architecture, and construction with competitive benefits.">
+    
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --success-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --warning-gradient: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            --danger-gradient: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            
+            --text-primary: #1a202c;
+            --text-secondary: #4a5568;
+            --text-light: #718096;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f7fafc;
+            
+            --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 10px 25px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 25px 50px rgba(0, 0, 0, 0.15);
+            
+            --border-radius-sm: 8px;
+            --border-radius-md: 16px;
+            --border-radius-lg: 24px;
+            --border-radius-xl: 32px;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--bg-primary);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 clamp(1rem, 4vw, 2rem);
+            width: 100%;
+        }
+
+        /* Header Styles */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .header.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .navbar {
+            padding: clamp(0.8rem, 2vw, 1.2rem) 0;
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 clamp(1rem, 4vw, 2rem);
+        }
+
+        .logo {
+            height: clamp(40px, 6vw, 60px);
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+            display: flex;              
+            align-items: center;
+        }
+
+        .logo img {
+            height: 200%;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+            padding: 0;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            position: relative;
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+            white-space: nowrap;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 0%;
+            height: 3px;
+            background: linear-gradient(90deg, rgba(255,0,0,0) 0%, red 50%, rgba(255,0,0,0) 100%);
+            box-shadow: 0 0 10px rgb(202, 125, 125), 0 0 20px rgb(123, 216, 69), 0 0 30px rgb(168, 55, 121);
+            transition: width 0.5s ease;
+            border-radius: 4px;
+            animation: none;
+        }
+
+        .nav-link:hover::after {
+            width: 120%;
+            animation: laser-glow 0.2s ease forwards;
+        }
+
+        @keyframes laser-glow {
+            0% {
+                box-shadow: 0 0 2px red;
+            }
+            50% {
+                box-shadow: 0 0 5px rgb(213, 216, 190), 0 0 10px rgb(202, 193, 139);
+            }
+            100% {
+                box-shadow: 0 0 10px red, 0 0 15px red, 0 0 20px red;
+            }
+        }
+
+        .nav-link:hover {
+            color: var(--glow-color);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: clamp(0.5rem, 2vw, 1rem);
+            flex-shrink: 0;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            padding: clamp(0.6rem, 2vw, 0.8rem);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: var(--text-secondary);
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+        }
+
+        .theme-toggle:hover {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            transform: scale(1.1);
+        }
+
+        .call-now-btn {
+            background: var(--primary-gradient);
+            color: white;
+            text-decoration: none;
+            padding: clamp(0.6rem, 2vw, 0.8rem) clamp(1rem, 3vw, 2rem);
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: clamp(0.8rem, 2vw, 1rem);
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-md);
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .call-now-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+            padding: 0.5rem;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--text-primary);
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+
+        /* Careers Page Styles */
+        .careers-page {
+            padding: clamp(6rem, 15vw, 10rem) 0 clamp(4rem, 10vw, 6rem);
+            background: 
+                linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%),
+                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.3) 0%, transparent 50%);
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .careers-page::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="careersGrid" width="50" height="50" patternUnits="userSpaceOnUse"><path d="M 50 0 L 0 0 0 50" fill="none" stroke="rgba(102,126,234,0.1)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23careersGrid)"/></svg>');
+            animation: gridMove 20s linear infinite;
+            opacity: 0.5;
+        }
+
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        .careers-hero {
+            text-align: center;
+            margin-bottom: clamp(4rem, 8vw, 6rem);
+            padding: clamp(2rem, 5vw, 4rem);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(25px);
+            border-radius: var(--border-radius-xl);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: var(--shadow-xl);
+            position: relative;
+            overflow: hidden;
+            z-index: 2;
+        }
+
+        .careers-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(102, 126, 234, 0.1), transparent);
+            animation: rotate 15s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .careers-hero > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        .careers-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: clamp(1rem, 3vw, 1.5rem);
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+
+        .careers-hero .highlight {
+            background: linear-gradient(135deg, #ef4444 0%, #f97316 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+        }
+
+        .careers-hero .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ef4444, #f97316);
+            border-radius: 2px;
+            animation: underlineGrow 2s ease-out;
+        }
+
+        @keyframes underlineGrow {
+            0% { width: 0; left: 50%; }
+            100% { width: 100%; left: 0; }
+        }
+
+        .careers-hero p {
+            font-size: clamp(1.1rem, 3vw, 1.6rem);
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Job Listings Section */
+        .job-listings {
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: clamp(2rem, 4vw, 3rem);
+            text-align: center;
+            line-height: 1.2;
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .jobs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: clamp(2rem, 4vw, 3rem);
+            margin-bottom: clamp(4rem, 8vw, 6rem);
+        }
+
+        .job-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(25px);
+            border-radius: var(--border-radius-xl);
+            padding: clamp(2rem, 4vw, 2.5rem);
+            box-shadow: var(--shadow-xl);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .job-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.05), transparent);
+            transition: left 0.8s ease;
+        }
+
+        .job-card:hover::before {
+            left: 100%;
+        }
+
+        .job-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: var(--shadow-xl);
+            border-color: rgba(102, 126, 234, 0.3);
+        }
+
+        .job-card > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        .job-header {
+            display: flex;
+            align-items: center;
+            gap: clamp(1rem, 3vw, 1.5rem);
+            margin-bottom: clamp(1.5rem, 3vw, 2rem);
+        }
+
+        .job-icon {
+            width: clamp(60px, 12vw, 70px);
+            height: clamp(60px, 12vw, 70px);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: clamp(1.5rem, 3vw, 1.8rem);
+            box-shadow: var(--shadow-md);
+            flex-shrink: 0;
+        }
+
+        .job-info h3 {
+            font-size: clamp(1.3rem, 3vw, 1.6rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+
+        .job-department {
+            color: #667eea;
+            font-weight: 600;
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .job-details {
+            margin-bottom: clamp(1.5rem, 3vw, 2rem);
+        }
+
+        .job-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: clamp(1rem, 2vw, 1.5rem);
+            margin-bottom: clamp(1rem, 2vw, 1.5rem);
+        }
+
+        .job-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            color: var(--text-secondary);
+        }
+
+        .job-meta-item i {
+            color: #667eea;
+            width: 16px;
+        }
+
+        .job-description {
+            color: var(--text-secondary);
+            font-size: clamp(1rem, 2.5vw, 1.1rem);
+            line-height: 1.6;
+            margin-bottom: clamp(1.5rem, 3vw, 2rem);
+        }
+
+        .job-requirements {
+            margin-bottom: clamp(1.5rem, 3vw, 2rem);
+        }
+
+        .job-requirements h4 {
+            font-size: clamp(1rem, 2.5vw, 1.1rem);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.8rem;
+        }
+
+        .requirements-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .requirements-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+            margin-bottom: 0.6rem;
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            color: var(--text-secondary);
+        }
+
+        .requirements-list li i {
+            color: #43e97b;
+            margin-top: 0.2rem;
+            flex-shrink: 0;
+        }
+
+        .job-actions {
+            display: flex;
+            gap: clamp(1rem, 2vw, 1.5rem);
+            flex-wrap: wrap;
+        }
+
+        .view-job-btn,
+        .apply-btn {
+            padding: clamp(0.8rem, 2vw, 1rem) clamp(1.5rem, 4vw, 2rem);
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            text-decoration: none;
+            text-align: center;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            border: none;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .view-job-btn {
+            background: var(--primary-gradient);
+            color: white;
+            box-shadow: var(--shadow-md);
+        }
+
+        .view-job-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .apply-btn {
+            background: rgba(67, 233, 123, 0.1);
+            color: #059669;
+            border: 2px solid rgba(67, 233, 123, 0.3);
+        }
+
+        .apply-btn:hover {
+            background: #059669;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Job Icons */
+        .job-card:nth-child(1) .job-icon {
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+        }
+
+        .job-card:nth-child(2) .job-icon {
+            background: var(--primary-gradient);
+        }
+
+        .job-card:nth-child(3) .job-icon {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+        }
+
+        .job-card:nth-child(4) .job-icon {
+            background: var(--warning-gradient);
+        }
+
+        .job-card:nth-child(5) .job-icon {
+            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+        }
+
+        .job-card:nth-child(6) .job-icon {
+            background: linear-gradient(135deg, #06b6d4, #0891b2);
+        }
+
+        /* Job Detail Modal */
+        .job-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 10000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: clamp(1rem, 4vw, 2rem);
+        }
+
+        .job-modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(25px);
+            border-radius: var(--border-radius-xl);
+            padding: clamp(2rem, 5vw, 3rem);
+            max-width: 800px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: clamp(1rem, 3vw, 1.5rem);
+            right: clamp(1rem, 3vw, 1.5rem);
+            background: none;
+            border: none;
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .modal-close:hover {
+            background: rgba(239, 68, 68, 0.1);
+            color: #ef4444;
+            transform: scale(1.1);
+        }
+
+        .modal-header {
+            margin-bottom: clamp(2rem, 4vw, 2.5rem);
+            padding-right: 60px;
+        }
+
+        .modal-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+
+        .modal-department {
+            color: #667eea;
+            font-weight: 600;
+            font-size: clamp(1rem, 2.5vw, 1.1rem);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .modal-section {
+            margin-bottom: clamp(2rem, 4vw, 2.5rem);
+        }
+
+        .modal-section h3 {
+            font-size: clamp(1.2rem, 3vw, 1.4rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: clamp(1rem, 2vw, 1.5rem);
+            position: relative;
+            display: inline-block;
+        }
+
+        .modal-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(90deg, #667eea, #ef4444);
+            border-radius: 2px;
+        }
+
+        .modal-section p,
+        .modal-section li {
+            color: var(--text-secondary);
+            font-size: clamp(1rem, 2.5vw, 1.1rem);
+            line-height: 1.6;
+            margin-bottom: 0.8rem;
+        }
+
+        .modal-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .modal-section ul li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .modal-section ul li i {
+            color: #43e97b;
+            margin-top: 0.2rem;
+            flex-shrink: 0;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: clamp(1rem, 3vw, 1.5rem);
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: clamp(2rem, 4vw, 3rem);
+        }
+
+        /* Application Form */
+        .application-form {
+            display: none;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(25px);
+            border-radius: var(--border-radius-xl);
+            padding: clamp(2rem, 5vw, 3rem);
+            margin-top: clamp(3rem, 6vw, 4rem);
+            box-shadow: var(--shadow-xl);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            position: relative;
+            z-index: 2;
+        }
+
+        .application-form.active {
+            display: block;
+        }
+
+        .form-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: clamp(2rem, 4vw, 2.5rem);
+            text-align: center;
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .form-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #ef4444);
+            border-radius: 2px;
+        }
+
+        .application-form form {
+            display: flex;
+            flex-direction: column;
+            gap: clamp(1.5rem, 3vw, 2rem);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: clamp(1rem, 3vw, 1.5rem);
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 0.8rem;
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: clamp(1rem, 2.5vw, 1.1rem);
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: clamp(1rem, 3vw, 1.2rem) clamp(1rem, 3vw, 1.5rem);
+            border: 2px solid rgba(0, 0, 0, 0.1);
+            border-radius: var(--border-radius-md);
+            font-size: clamp(1rem, 2.5vw, 1.1rem);
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.9);
+            font-family: inherit;
+            font-weight: 500;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            background: white;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .file-upload {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .file-upload input[type="file"] {
+            position: absolute;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+
+        .file-upload-label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            padding: clamp(1rem, 3vw, 1.2rem) clamp(1rem, 3vw, 1.5rem);
+            border: 2px dashed rgba(102, 126, 234, 0.3);
+            border-radius: var(--border-radius-md);
+            background: rgba(102, 126, 234, 0.05);
+            color: #667eea;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .file-upload:hover .file-upload-label {
+            border-color: #667eea;
+            background: rgba(102, 126, 234, 0.1);
+        }
+
+        .file-name {
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Honeypot field (hidden anti-spam) */
+        .honeypot {
+            position: absolute;
+            left: -9999px;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .submit-btn {
+            background: var(--primary-gradient);
+            color: white;
+            border: none;
+            padding: clamp(1.2rem, 3vw, 1.5rem) clamp(2rem, 5vw, 3rem);
+            border-radius: 50px;
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-lg);
+            margin-top: clamp(1.5rem, 3vw, 2rem);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Dropdown Styles */
+.dropdown {
+    position: relative;
+}
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    box-shadow: var(--shadow-md);
+    list-style: none;
+    padding: 0.5rem 0;
+    border-radius: var(--border-radius-sm);
+    z-index: 1000;
+}
+.dropdown-menu li {
+    padding: 0;
+}
+.dropdown-menu li a {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: var(--text-primary);
+    text-decoration: none;
+    white-space: nowrap;
+}
+.dropdown-menu li a:hover {
+    background: var(--bg-secondary);
+}
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* Dark mode dropdown fix */
+[data-theme="dark"] .dropdown-menu {
+    background: #2d3748; /* dark bg */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .dropdown-menu li a {
+    color: #f7fafc; /* light text */
+}
+
+[data-theme="dark"] .dropdown-menu li a:hover {
+    background: #4a5568; /* dark hover bg */
+}
+
+
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+            color: white;
+            padding: clamp(3rem, 6vw, 4rem) 0 clamp(1.5rem, 3vw, 2rem);
+            position: relative;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: clamp(2rem, 4vw, 3rem);
+            margin-bottom: clamp(2rem, 4vw, 3rem);
+            position: relative;
+            z-index: 2;
+            text-align: left;
+        }
+
+        .footer-section h3,
+        .footer-section h4 {
+            margin-bottom: clamp(1rem, 2vw, 1.5rem);
+            color: white;
+        }
+
+        .footer-section h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.5rem, 3vw, 1.8rem);
+            font-weight: 700;
+        }
+
+        .footer-section h4 {
+            font-size: clamp(1.1rem, 2.5vw, 1.2rem);
+            font-weight: 600;
+        }
+
+        .footer-section p {
+            color: #cbd5e0;
+            line-height: 1.6;
+            margin-bottom: clamp(0.8rem, 2vw, 1rem);
+            font-size: clamp(0.9rem, 2vw, 1rem);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section ul li a {
+            color: #cbd5e0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: clamp(0.9rem, 2vw, 1rem);
+        }
+
+        .footer-section ul li a:hover {
+            color: white;
+        }
+
+        .contact-info p {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+            margin-bottom: clamp(0.8rem, 2vw, 1rem);
+        }
+
+        .contact-info i {
+            color: #667eea;
+            width: 20px;
+            flex-shrink: 0;
+            margin-top: 0.2rem;
+        }
+
+        .contact-info p a[href^="tel:"],
+        .contact-info p a[href^="mailto:"] {
+            color: #fbbf24 !important;
+            font-weight: 600;
+        }
+
+        .contact-info p a[href^="tel:"]:hover,
+        .contact-info p a[href^="mailto:"]:hover {
+            color: #f59e0b !important;
+        }
+
+        .social-links {
+            display: flex;
+            gap: clamp(0.8rem, 2vw, 1rem);
+            margin-bottom: clamp(1.5rem, 3vw, 2rem);
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .social-links a {
+            width: clamp(45px, 8vw, 50px);
+            height: clamp(45px, 8vw, 50px);
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+        }
+
+        .social-links a:hover {
+            background: #667eea;
+            transform: translateY(-3px);
+        }
+
+        .legal-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .legal-links a {
+            color: #cbd5e0;
+            text-decoration: none;
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
+            transition: color 0.3s ease;
+        }
+
+        .legal-links a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: clamp(1.5rem, 3vw, 2rem);
+            text-align: center;
+            color: #cbd5e0;
+            position: relative;
+            z-index: 2;
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-floating {
+            position: fixed;
+            bottom: clamp(1.5rem, 4vw, 2rem);
+            right: clamp(1.5rem, 4vw, 2rem);
+            z-index: 1000;
+        }
+
+        .whatsapp-btn {
+            width: clamp(60px, 12vw, 70px);
+            height: clamp(60px, 12vw, 70px);
+            background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            text-decoration: none;
+            box-shadow: var(--shadow-xl);
+            transition: all 0.3s ease;
+            animation: whatsappPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes whatsappPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.15);
+            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.4);
+        }
+
+        /* Mobile Navigation */
+        .nav-menu.mobile-active {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .nav-menu.mobile-active.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .nav-menu.mobile-active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .header-actions .call-now-btn span {
+                display: none;
+            }
+
+            .jobs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .job-actions {
+                flex-direction: column;
+            }
+
+            .view-job-btn,
+            .apply-btn {
+                width: 100%;
+            }
+
+            .modal-actions {
+                flex-direction: column;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .contact-info p {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .careers-hero,
+            .application-form {
+                margin-left: -0.5rem;
+                margin-right: -0.5rem;
+            }
+
+            .modal-content {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+        }
+
+        /* Dark Mode */
+        [data-theme="dark"] {
+            --text-primary: #f7fafc;
+            --text-secondary: #e2e8f0;
+            --text-light: #cbd5e0;
+            --bg-primary: #1a202c;
+            --bg-secondary: #2d3748;
+        }
+
+        [data-theme="dark"] .header {
+            background: rgba(26, 32, 44, 0.95);
+        }
+
+        [data-theme="dark"] .careers-hero,
+        [data-theme="dark"] .job-card,
+        [data-theme="dark"] .application-form,
+        [data-theme="dark"] .modal-content {
+            background: rgba(45, 55, 72, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        [data-theme="dark"] .form-group input,
+        [data-theme="dark"] .form-group textarea,
+        [data-theme="dark"] .form-group select {
+            background: rgba(51, 65, 85, 0.8);
+            border: 2px solid rgba(71, 85, 105, 0.6);
+            color: var(--text-primary);
+        }
+
+        [data-theme="dark"] .form-group input:focus,
+        [data-theme="dark"] .form-group textarea:focus,
+        [data-theme="dark"] .form-group select:focus {
+            border-color: #60a5fa;
+            box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.2);
+            background: rgba(51, 65, 85, 0.9);
+        }
+
+        [data-theme="dark"] .file-upload-label {
+            background: rgba(96, 165, 250, 0.1);
+            border-color: rgba(96, 165, 250, 0.3);
+            color: #60a5fa;
+        }
+
+        [data-theme="dark"] .hamburger span {
+            background: var(--text-primary);
+        }
+
+        [data-theme="dark"] .nav-menu.mobile-active {
+            background: rgba(26, 32, 44, 0.98);
+        }
+
+        /* Scroll Animations */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .scroll-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body data-theme="light">
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="index.html" class="logo-link">
+                    <div class="logo">
+                        <img src="logo.png" alt="Ashiyana Design World">
+                    </div>
+                </a>
+                <ul class="nav-menu" id="navMenu">
+    <li><a href="index.html" class="nav-link active">Home</a></li>
+    <li><a href="about.html" class="nav-link">About</a></li>
+    <li><a href="overview.html" class="nav-link">Login</a></li>
+    <li class="dropdown">
+        <a href="#" class="nav-link">More <i class="fas fa-caret-down"></i></a>
+        <ul class="dropdown-menu">
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="estimate.html">Estimate</a></li>
+            <li><a href="careers.html">Careers</a></li>
+        </ul>
+    </li>
+</ul>
+
+                <div class="header-actions">
+                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <a href="tel:+918900758833" class="call-now-btn">
+                        <i class="fas fa-phone"></i> <span>Call Now</span>
+                    </a>
+                </div>
+                <div class="hamburger" id="hamburger" aria-label="Toggle mobile menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Careers Page Content -->
+    <section class="careers-page">
+        <div class="container">
+            <div class="careers-hero scroll-reveal">
+                <h1>Join Our <span class="highlight">Dream Team</span></h1>
+                <p>Be part of India's leading interior design and architecture firm. Build your career with us and help create extraordinary spaces that inspire and transform lives.</p>
+            </div>
+
+            <!-- Job Listings -->
+            <div class="job-listings">
+                <h2 class="section-title scroll-reveal">Current Openings</h2>
+                
+                <div class="jobs-grid">
+                    <!-- Senior Interior Designer -->
+                    <div class="job-card scroll-reveal" data-job="senior-interior-designer">
+                        <div class="job-header">
+                            <div class="job-icon">
+                                <i class="fas fa-paint-brush"></i>
+                            </div>
+                            <div class="job-info">
+                                <h3>Senior Interior Designer</h3>
+                                <div class="job-department">Design Department</div>
+                            </div>
+                        </div>
+                        
+                        <div class="job-details">
+                            <div class="job-meta">
+                                <div class="job-meta-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Arambag, West Bengal</span>
+                                </div>
+                                <div class="job-meta-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>Full-time</span>
+                                </div>
+                                <div class="job-meta-item">
+                                    <i class="fas fa-rupee-sign"></i>
+                                    <span>₹4-8 LPA</span>
+                                </div>
+                            </div>
+                            
+                            <p class="job-description">
+                                Lead premium interior design projects from concept to completion. Work with high-end residential and commercial clients to create stunning, functional spaces.
+                            </p>
+                            
+                            <div class="job-requirements">
+                                <h4>Key Requirements:</h4>
+                                <ul class="requirements-list">
+                                    <li><i class="fas fa-check"></i> 5+ years interior design experience</li>
+                                    <li><i class="fas fa-check"></i> Proficiency in AutoCAD, 3ds Max, SketchUp</li>
+                                    <li><i class="fas fa-check"></i> Strong portfolio of completed projects</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="job-actions">
+                            <button class="view-job-btn" onclick="openJobModal('senior-interior-designer')">
+                                <i class="fas fa-eye"></i> View Details
+                            </button>
+                            <button class="apply-btn" onclick="showApplicationForm('Senior Interior Designer')">
+                                <i class="fas fa-paper-plane"></i> Apply Now
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Junior Architect -->
+                    <div class="job-card scroll-reveal" data-job="junior-architect">
+                        <div class="job-header">
+                            <div class="job-icon">
+                                <i class="fas fa-drafting-compass"></i>
+                            </div>
+                            <div class="job-info">
+                                <h3>Junior Architect</h3>
+                                <div class="job-department">Architecture Department</div>
+                            </div>
+                        </div>
+                        
+                        <div class="job-details">
+                            <div class="job-meta">
+                                <div class="job-meta-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Arambag, West Bengal</span>
+                                </div>
+                                <div class="job-meta-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>Full-time</span>
+                                </div>
+                                <div class="job-meta-item">
+                                    <i class="fas fa-rupee-sign"></i>
+                                    <span>₹3-5 LPA</span>
+                                </div>
+                            </div>
+                            
+                            <p class="job-description">
+                                Support architectural design and planning for residential and commercial projects. Assist in creating innovative, sustainable building solutions.
+                            </p>
+                            
+                            <div class="job-requirements">
+                                <h4>Key Requirements:</h4>
+                                <ul class="requirements-list">
+                                    <li><i class="fas fa-check"></i> Bachelor's in Architecture</li>
+                                    <li><i class="fas fa-check"></i> 1-3 years experience preferred</li>
+                                    <li><i class="fas fa-check"></i> Knowledge of building codes and regulations</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="job-actions">
+                            <button class="view-job-btn" onclick="openJobModal('junior-architect')">
+                                <i class="fas fa-eye"></i> View Details
+                            </button>
+                            <button class="apply-btn" onclick="showApplicationForm('Junior Architect')">
+                                <i class="fas fa-paper-plane"></i> Apply Now
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Project Manager -->
+                    <div class="job-card scroll-reveal" data-job="project-manager">
+                        <div class="job-header">
+                            <div class="job-icon">
+                                <i class="fas fa-tasks"></i>
+                            </div>
+                            <div class="job-info">
+                                <h3>Project Manager</h3>
+                                <div class="job-department">Operations Department</div>
+                            </div>
+                        </div>
+                        
+                        <div class="job-details">
+                            <div class="job-meta">
+                                <div class="job-meta-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Arambag, West Bengal</span>
+                                </div>
+                                <div class="job-meta-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>Full-time</span>
+                                </div>
+                                <div class="job-meta-item">
+                                    <i class="fas fa-rupee-sign"></i>
+                                    <span>₹5-9 LPA</span>
+                                </div>
+                            </div>
+                            
+                            <p class="job-description">
+                                Oversee multiple design and construction projects simultaneously. Ensure timely delivery, quality standards, and client satisfaction.
+                            </p>
+                            
+                            <div class="job-requirements">
+                                <h4>Key Requirements:</h4>
+                                <ul class="requirements-list">
+                                    <li><i class="fas fa-check"></i> 4+ years project management experience</li>
+                                    <li><i class="fas fa-check"></i> PMP certification preferred</li>
+                                    <li><i class="fas fa-check"></i> Strong leadership and communication skills</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="job-actions">
+                            <button class="view-job-btn" onclick="openJobModal('project-manager')">
+                                <i class="fas fa-eye"></i> View Details
+                            </button>
+                            <button class="apply-btn" onclick="showApplicationForm('Project Manager')">
+                                <i class="fas fa-paper-plane"></i> Apply Now
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- 3D Visualization Specialist -->
+                    <div class="job-card scroll-reveal" data-job="3d-specialist">
+                        <div class="job-header">
+                            <div class="job-icon">
+                                <i class="fas fa-cube"></i>
+                            </div>
+                            <div class="job-info">
+                                <h3>3D Visualization Specialist</h3>
+                                <div class="job-department">Design Department</div>
+                            </div>
+                        </div>
+                        
+                        <div class="job-details">
+                            <div class="job-meta">
+                                <div class="job-meta-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Arambag, West Bengal</span>
+                                </div>
+                                <div class="job-meta-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>Full-time</span>
+                                </div>
+                                <div class="job-meta-item">
+                                    <i class="fas fa-rupee-sign"></i>
+                                    <span>₹3-6 LPA</span>
+                                </div>
+                            </div>
+                            
+                            <p class="job-description">
+                                Create photorealistic 3D renderings and virtual walkthroughs for interior design and architectural projects. Bring designs to life with cutting-edge visualization.
+                            </p>
+                            
+                            <div class="job-requirements">
+                                <h4>Key Requirements:</h4>
+                                <ul class="requirements-list">
+                                    <li><i class="fas fa-check"></i> Expert in 3ds Max, V-Ray, Corona</li>
+                                    <li><i class="fas fa-check"></i> 2+ years 3D visualization experience</li>
+                                    <li><i class="fas fa-check"></i> Strong artistic and technical skills</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="job-actions">
+                            <button class="view-job-btn" onclick="openJobModal('3d-specialist')">
+                                <i class="fas fa-eye"></i> View Details
+                            </button>
+                            <button class="apply-btn" onclick="showApplicationForm('3D Visualization Specialist')">
+                                <i class="fas fa-paper-plane"></i> Apply Now
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Business Development Executive -->
+                    <div class="job-card scroll-reveal" data-job="business-development">
+                        <div class="job-header">
+                            <div class="job-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="job-info">
+                                <h3>Business Development Executive</h3>
+                                <div class="job-department">Sales Department</div>
+                            </div>
+                        </div>
+                        
+                        <div class="job-details">
+                            <div class="job-meta">
+                                <div class="job-meta-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Arambag, West Bengal</span>
+                                </div>
+                                <div class="job-meta-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>Full-time</span>
+                                </div>
+                                <div class="job-meta-item">
+                                    <i class="fas fa-rupee-sign"></i>
+                                    <span>₹3-7 LPA</span>
+                                </div>
+                            </div>
+                            
+                            <p class="job-description">
+                                Drive business growth by identifying new opportunities, building client relationships, and expanding our market presence in the premium design sector.
+                            </p>
+                            
+                            <div class="job-requirements">
+                                <h4>Key Requirements:</h4>
+                                <ul class="requirements-list">
+                                    <li><i class="fas fa-check"></i> 2+ years sales/BD experience</li>
+                                    <li><i class="fas fa-check"></i> Excellent communication skills</li>
+                                    <li><i class="fas fa-check"></i> Knowledge of design industry preferred</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="job-actions">
+                            <button class="view-job-btn" onclick="openJobModal('business-development')">
+                                <i class="fas fa-eye"></i> View Details
+                            </button>
+                            <button class="apply-btn" onclick="showApplicationForm('Business Development Executive')">
+                                <i class="fas fa-paper-plane"></i> Apply Now
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Site Supervisor -->
+                    <div class="job-card scroll-reveal" data-job="site-supervisor">
+                        <div class="job-header">
+                            <div class="job-icon">
+                                <i class="fas fa-hard-hat"></i>
+                            </div>
+                            <div class="job-info">
+                                <h3>Site Supervisor</h3>
+                                <div class="job-department">Construction Department</div>
+                            </div>
+                        </div>
+                        
+                        <div class="job-details">
+                            <div class="job-meta">
+                                <div class="job-meta-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Arambag, West Bengal</span>
+                                </div>
+                                <div class="job-meta-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>Full-time</span>
+                                </div>
+                                <div class="job-meta-item">
+                                    <i class="fas fa-rupee-sign"></i>
+                                    <span>₹2.5-4 LPA</span>
+                                </div>
+                            </div>
+                            
+                            <p class="job-description">
+                                Supervise construction and interior work on-site. Ensure quality standards, safety protocols, and timely project completion.
+                            </p>
+                            
+                            <div class="job-requirements">
+                                <h4>Key Requirements:</h4>
+                                <ul class="requirements-list">
+                                    <li><i class="fas fa-check"></i> 3+ years construction supervision</li>
+                                    <li><i class="fas fa-check"></i> Knowledge of building materials</li>
+                                    <li><i class="fas fa-check"></i> Strong problem-solving skills</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="job-actions">
+                            <button class="view-job-btn" onclick="openJobModal('site-supervisor')">
+                                <i class="fas fa-eye"></i> View Details
+                            </button>
+                            <button class="apply-btn" onclick="showApplicationForm('Site Supervisor')">
+                                <i class="fas fa-paper-plane"></i> Apply Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Application Form -->
+            <div class="application-form" id="applicationForm">
+                <h2 class="form-title">Apply for Position</h2>
+                
+                <form name="careers" method="POST" data-netlify="true" enctype="multipart/form-data" id="careerForm">
+                    <input type="hidden" name="form-name" value="careers">
+                    
+                    <!-- Honeypot field for anti-spam -->
+                    <div class="honeypot">
+                        <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="fullName">Full Name *</label>
+                            <input type="text" id="fullName" name="name" required placeholder="Enter your full name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required placeholder="Enter your email address">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" required placeholder="Enter your phone number">
+                        </div>
+                        <div class="form-group">
+                            <label for="position">Position Applied For *</label>
+                            <input type="text" id="position" name="position" required readonly placeholder="Position will be auto-filled">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="experience">Experience Level</label>
+                            <select id="experience" name="experience">
+                                <option value="">Select experience level</option>
+                                <option value="fresher">Fresher (0-1 years)</option>
+                                <option value="junior">Junior (1-3 years)</option>
+                                <option value="mid">Mid-level (3-5 years)</option>
+                                <option value="senior">Senior (5+ years)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="salary">Expected Salary (LPA)</label>
+                            <input type="text" id="salary" name="salary" placeholder="e.g., 4-6 LPA">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="portfolio">Portfolio/LinkedIn URL</label>
+                        <input type="url" id="portfolio" name="portfolio" placeholder="https://your-portfolio.com or LinkedIn profile">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="resumeLink">Google Drive Resume Link (Make Public) *</label>
+                        <input type="url" id="resumeLink" name="resumeLink" placeholder="Paste your Google Drive link here" required>
+                        <small>⚠ Make sure your Drive link is set to 'Anyone with the link can view'</small>
+                    </div>
+
+                    
+                    <div class="form-group">
+                        <label for="coverLetter">Cover Letter / Why do you want to join us?</label>
+                        <textarea id="coverLetter" name="coverLetter" rows="5" placeholder="Tell us why you're interested in this position and what makes you a great fit for our team..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-paper-plane"></i>
+                        Submit Application
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Job Detail Modal -->
+    <div class="job-modal" id="jobModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeJobModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="modal-header">
+                <h2 class="modal-title" id="modalTitle">Job Title</h2>
+                <div class="modal-department" id="modalDepartment">Department</div>
+            </div>
+            
+            <div class="modal-section">
+                <h3>Job Overview</h3>
+                <p id="modalOverview">Job overview content...</p>
+            </div>
+            
+            <div class="modal-section">
+                <h3>Key Responsibilities</h3>
+                <ul id="modalResponsibilities">
+                    <!-- Responsibilities will be populated by JavaScript -->
+                </ul>
+            </div>
+            
+            <div class="modal-section">
+                <h3>Requirements & Qualifications</h3>
+                <ul id="modalRequirements">
+                    <!-- Requirements will be populated by JavaScript -->
+                </ul>
+            </div>
+            
+            <div class="modal-section">
+                <h3>What We Offer</h3>
+                <ul id="modalBenefits">
+                    <li><i class="fas fa-check"></i> Competitive salary and performance bonuses</li>
+                    <li><i class="fas fa-check"></i> Health insurance and medical benefits</li>
+                    <li><i class="fas fa-check"></i> Professional development opportunities</li>
+                    <li><i class="fas fa-check"></i> Flexible working hours</li>
+                    <li><i class="fas fa-check"></i> Creative and collaborative work environment</li>
+                    <li><i class="fas fa-check"></i> Career growth and advancement opportunities</li>
+                </ul>
+            </div>
+            
+            <div class="modal-actions">
+                <button class="apply-btn" onclick="showApplicationFormFromModal()">
+                    <i class="fas fa-paper-plane"></i> Apply for This Position
+                </button>
+                <button class="view-job-btn" onclick="closeJobModal()">
+                    <i class="fas fa-times"></i> Close
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Ashiyana Design World</h3>
+                    <p>Leading the industry in premium interior design, innovative architecture, and exceptional craftsmanship. We transform spaces into extraordinary experiences that exceed expectations and inspire for generations.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Premium Services</h4>
+                    <ul>
+                        <li><a href="index.html">Luxury Interior Design</a></li>
+                        <li><a href="about.html">Innovative Architecture</a></li>
+                        <li><a href="contact.html">Design Consultation</a></li>
+                        <li><a href="estimate.html">Project Estimation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Information</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> PC Sen Rd, opposite of Arambagh Girls High School, Arambag, West Bengal 712601</p>
+                        <p><i class="fas fa-phone"></i> <a href="tel:+918900758833">+91 89007 58833</a></p>
+                        <p><i class="fas fa-envelope"></i> <a href="mailto:support@ashiyanadesignworld.in">support@ashiyanadesignworld.in</a></p>
+                        <p><i class="fas fa-clock"></i> Mon - Sat: 9:00 AM - 7:00 PM</p>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect & Legal</h4>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/ashiyana_design?igsh=cmFjcWt3bXRhdXEx" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/channel/UC7GRLyy0otq8pdhM7J-BQ9w" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+                        <a href="https://www.facebook.com/share/18mjuRc7bb/" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.linkedin.com/company/ashiyana-design-world/" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                    <div class="legal-links">
+                        <a href="privacy.html">Privacy Policy</a>
+                        <a href="terms.html">Terms & Conditions</a>
+                        <a href="vastu.html">Vastu Disclaimer</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Ashiyana Design World. All rights reserved. | Powered by Smart Software World</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <div class="whatsapp-floating">
+        <a href="https://wa.me/918900758833?text=Hi! I'm interested in career opportunities at Ashiyana Design World. Please provide me with more information about current openings." target="_blank" class="whatsapp-btn" aria-label="Contact via WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <script>
+        // Job data for modal content
+        const jobData = {
+            'senior-interior-designer': {
+                title: 'Senior Interior Designer',
+                department: 'Design Department',
+                overview: 'Lead our premium interior design projects from initial concept through final implementation. Work directly with high-end residential and commercial clients to create stunning, functional spaces that exceed expectations. Mentor junior designers and collaborate with our architecture team to deliver world-class design solutions.',
+                responsibilities: [
+                    'Lead design development for luxury residential and commercial projects',
+                    'Create detailed design presentations and client proposals',
+                    'Coordinate with architects, contractors, and vendors',
+                    'Manage project timelines and budgets effectively',
+                    'Mentor and guide junior design team members',
+                    'Stay updated with latest design trends and materials',
+                    'Conduct site visits and quality inspections',
+                    'Maintain strong client relationships throughout projects'
+                ],
+                requirements: [
+                    'Bachelor\'s degree in Interior Design or related field',
+                    '5+ years of professional interior design experience',
+                    'Proficiency in AutoCAD, 3ds Max, SketchUp, and Adobe Creative Suite',
+                    'Strong portfolio showcasing completed high-end projects',
+                    'Excellent communication and presentation skills',
+                    'Knowledge of building codes and safety regulations',
+                    'Ability to work under pressure and meet tight deadlines',
+                    'Leadership experience and team management skills'
+                ]
+            },
+            'junior-architect': {
+                title: 'Junior Architect',
+                department: 'Architecture Department',
+                overview: 'Support our architectural design and planning initiatives for innovative residential and commercial projects. Work closely with senior architects to develop sustainable, functional, and aesthetically pleasing building solutions. Gain hands-on experience in all phases of architectural design and project development.',
+                responsibilities: [
+                    'Assist in architectural design and planning phases',
+                    'Prepare detailed drawings and technical documentation',
+                    'Conduct site analysis and feasibility studies',
+                    'Coordinate with engineering consultants and contractors',
+                    'Support permit applications and regulatory approvals',
+                    'Participate in client meetings and design presentations',
+                    'Research building materials and construction methods',
+                    'Assist in project management and quality control'
+                ],
+                requirements: [
+                    'Bachelor\'s degree in Architecture (B.Arch)',
+                    '1-3 years of architectural experience preferred',
+                    'Proficiency in AutoCAD, Revit, SketchUp, and Rhino',
+                    'Knowledge of building codes and zoning regulations',
+                    'Understanding of structural and MEP systems',
+                    'Strong analytical and problem-solving skills',
+                    'Excellent attention to detail and accuracy',
+                    'Good communication and teamwork abilities'
+                ]
+            },
+            'project-manager': {
+                title: 'Project Manager',
+                department: 'Operations Department',
+                overview: 'Oversee multiple high-value design and construction projects simultaneously, ensuring exceptional delivery standards, timeline adherence, and client satisfaction. Lead cross-functional teams and coordinate with various stakeholders to bring complex projects to successful completion.',
+                responsibilities: [
+                    'Manage multiple projects from initiation to completion',
+                    'Develop comprehensive project plans and schedules',
+                    'Coordinate between design, construction, and client teams',
+                    'Monitor project budgets and resource allocation',
+                    'Ensure quality standards and safety compliance',
+                    'Conduct regular progress meetings and status reports',
+                    'Manage project risks and implement mitigation strategies',
+                    'Maintain strong client relationships and communication'
+                ],
+                requirements: [
+                    'Bachelor\'s degree in Engineering, Architecture, or related field',
+                    '4+ years of project management experience in construction/design',
+                    'PMP or equivalent project management certification preferred',
+                    'Strong leadership and team management skills',
+                    'Excellent communication and negotiation abilities',
+                    'Proficiency in project management software (MS Project, Primavera)',
+                    'Knowledge of construction processes and building codes',
+                    'Ability to work under pressure and manage multiple priorities'
+                ]
+            },
+            '3d-specialist': {
+                title: '3D Visualization Specialist',
+                department: 'Design Department',
+                overview: 'Create stunning photorealistic 3D renderings, virtual walkthroughs, and immersive visualizations that bring our design concepts to life. Work closely with designers and architects to produce compelling visual content that helps clients envision their dream spaces.',
+                responsibilities: [
+                    'Create high-quality 3D renderings and visualizations',
+                    'Develop virtual reality and augmented reality experiences',
+                    'Produce architectural walkthroughs and animations',
+                    'Collaborate with design team on visual concepts',
+                    'Maintain 3D model libraries and material databases',
+                    'Stay updated with latest rendering technologies',
+                    'Optimize rendering workflows for efficiency',
+                    'Support marketing team with visual content creation'
+                ],
+                requirements: [
+                    'Bachelor\'s degree in Architecture, Design, or related field',
+                    '2+ years of professional 3D visualization experience',
+                    'Expert proficiency in 3ds Max, V-Ray, Corona Renderer',
+                    'Strong skills in Photoshop and post-production',
+                    'Knowledge of VR/AR technologies and workflows',
+                    'Excellent artistic sense and attention to detail',
+                    'Ability to work with tight deadlines',
+                    'Strong portfolio showcasing photorealistic renderings'
+                ]
+            },
+            'business-development': {
+                title: 'Business Development Executive',
+                department: 'Sales Department',
+                overview: 'Drive business growth by identifying new market opportunities, building strategic partnerships, and expanding our client base in the premium design sector. Develop and maintain relationships with high-value clients while contributing to our company\'s continued success.',
+                responsibilities: [
+                    'Identify and pursue new business opportunities',
+                    'Build and maintain client relationships',
+                    'Develop strategic partnerships with industry stakeholders',
+                    'Prepare proposals and presentations for potential clients',
+                    'Conduct market research and competitive analysis',
+                    'Participate in industry events and networking activities',
+                    'Collaborate with design team on project proposals',
+                    'Achieve monthly and quarterly sales targets'
+                ],
+                requirements: [
+                    'Bachelor\'s degree in Business, Marketing, or related field',
+                    '2+ years of sales or business development experience',
+                    'Knowledge of interior design and construction industry preferred',
+                    'Excellent communication and presentation skills',
+                    'Strong networking and relationship-building abilities',
+                    'Proficiency in CRM software and sales tools',
+                    'Self-motivated with strong drive for results',
+                    'Ability to work independently and as part of a team'
+                ]
+            },
+            'site-supervisor': {
+                title: 'Site Supervisor',
+                department: 'Construction Department',
+                overview: 'Ensure the highest quality standards in our construction and interior work by supervising on-site activities, coordinating with contractors, and maintaining safety protocols. Play a crucial role in bringing our design visions to reality with precision and excellence.',
+                responsibilities: [
+                    'Supervise daily construction and interior work activities',
+                    'Ensure compliance with safety protocols and regulations',
+                    'Coordinate with contractors, vendors, and workers',
+                    'Monitor work quality and adherence to specifications',
+                    'Conduct regular site inspections and progress reports',
+                    'Manage material deliveries and inventory',
+                    'Resolve on-site issues and conflicts promptly',
+                    'Maintain detailed project documentation and records'
+                ],
+                requirements: [
+                    'Diploma in Civil Engineering or related field',
+                    '3+ years of construction supervision experience',
+                    'Strong knowledge of building materials and construction methods',
+                    'Understanding of safety regulations and quality standards',
+                    'Excellent problem-solving and decision-making skills',
+                    'Good communication skills in local languages',
+                    'Physical fitness for site work and inspections',
+                    'Ability to work in challenging outdoor conditions'
+                ]
+            }
+        };
+
+        let currentJobPosition = '';
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Header scroll effect
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 100) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            // Mobile menu toggle
+            const hamburger = document.getElementById('hamburger');
+            const navMenu = document.getElementById('navMenu');
+            
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('mobile-active');
+                
+                if (navMenu.classList.contains('mobile-active')) {
+                    setTimeout(() => {
+                        navMenu.classList.add('show');
+                    }, 10);
+                } else {
+                    navMenu.classList.remove('show');
+                }
+                
+                document.body.style.overflow = navMenu.classList.contains('mobile-active') ? 'hidden' : '';
+            });
+
+            // Close mobile menu when clicking on nav links
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('mobile-active', 'show');
+                    document.body.style.overflow = '';
+                });
+            });
+
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('mobile-active', 'show');
+                    document.body.style.overflow = '';
+                }
+            });
+
+            // Theme toggle
+            const themeToggle = document.getElementById('themeToggle');
+            const body = document.body;
+            
+            themeToggle.addEventListener('click', () => {
+                const currentTheme = body.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                body.setAttribute('data-theme', newTheme);
+                
+                const icon = themeToggle.querySelector('i');
+                icon.className = newTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+                
+                localStorage.setItem('theme', newTheme);
+            });
+
+            // Load saved theme
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            body.setAttribute('data-theme', savedTheme);
+            const themeIcon = themeToggle.querySelector('i');
+            themeIcon.className = savedTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+
+            // Scroll reveal animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('revealed');
+                    }
+                });
+            }, observerOptions);
+
+            const scrollElements = document.querySelectorAll('.scroll-reveal');
+            scrollElements.forEach(el => observer.observe(el));
+
+            // File upload handling
+            const fileInput = document.getElementById('resume');
+            const fileName = document.getElementById('fileName');
+            
+            fileInput.addEventListener('change', function(e) {
+                const file = e.target.files[0];
+                if (file) {
+                    // Check file size (5MB limit)
+                    if (file.size > 5 * 1024 * 1024) {
+                        alert('File size must be less than 5MB');
+                        this.value = '';
+                        fileName.textContent = '';
+                        return;
+                    }
+                    
+                    // Check file type
+                    const allowedTypes = ['.pdf', '.doc', '.docx'];
+                    const fileExtension = '.' + file.name.split('.').pop().toLowerCase();
+                    if (!allowedTypes.includes(fileExtension)) {
+                        alert('Please upload only PDF or DOC files');
+                        this.value = '';
+                        fileName.textContent = '';
+                        return;
+                    }
+                    
+                    fileName.textContent = `Selected: ${file.name}`;
+                } else {
+                    fileName.textContent = '';
+                }
+            });
+
+            // Form submission handling
+            const form = document.getElementById('careerForm');
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Basic validation
+                const requiredFields = ['fullName', 'email', 'phone', 'position', 'resume'];
+                let isValid = true;
+                
+                requiredFields.forEach(fieldId => {
+                    const field = document.getElementById(fieldId);
+                    if (!field.value.trim()) {
+                        isValid = false;
+                        field.style.borderColor = '#ef4444';
+                    } else {
+                        field.style.borderColor = '';
+                    }
+                });
+                
+                // Check honeypot field
+                const honeypot = document.querySelector('input[name="bot-field"]');
+                if (honeypot.value) {
+                    // This is likely a bot submission
+                    return;
+                }
+                
+                if (!isValid) {
+                    alert('Please fill in all required fields');
+                    return;
+                }
+                
+                // Show loading state
+                const submitBtn = document.querySelector('.submit-btn');
+                const originalText = submitBtn.innerHTML;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting Application...';
+                submitBtn.disabled = true;
+                
+                // Submit form to Netlify
+                const formData = new FormData(form);
+                
+                fetch('/', {
+                    method: 'POST',
+                    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                    body: new URLSearchParams(formData).toString()
+                })
+                .then(() => {
+                    alert('Thank you! Your application has been submitted successfully. We will review your application and contact you within 3-5 business days.');
+                    form.reset();
+                    fileName.textContent = '';
+                    hideApplicationForm();
+                })
+                .catch((error) => {
+                    alert('There was an error submitting your application. Please try again or contact us directly.');
+                })
+                .finally(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                });
+            });
+        });
+
+        // Job modal functions
+        function openJobModal(jobId) {
+            const job = jobData[jobId];
+            if (!job) return;
+            
+            document.getElementById('modalTitle').textContent = job.title;
+            document.getElementById('modalDepartment').textContent = job.department;
+            document.getElementById('modalOverview').textContent = job.overview;
+            
+            // Populate responsibilities
+            const responsibilitiesList = document.getElementById('modalResponsibilities');
+            responsibilitiesList.innerHTML = '';
+            job.responsibilities.forEach(responsibility => {
+                const li = document.createElement('li');
+                li.innerHTML = `<i class="fas fa-check"></i> ${responsibility}`;
+                responsibilitiesList.appendChild(li);
+            });
+            
+            // Populate requirements
+            const requirementsList = document.getElementById('modalRequirements');
+            requirementsList.innerHTML = '';
+            job.requirements.forEach(requirement => {
+                const li = document.createElement('li');
+                li.innerHTML = `<i class="fas fa-check"></i> ${requirement}`;
+                requirementsList.appendChild(li);
+            });
+            
+            currentJobPosition = job.title;
+            document.getElementById('jobModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeJobModal() {
+            document.getElementById('jobModal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function showApplicationForm(position) {
+            currentJobPosition = position;
+            document.getElementById('position').value = position;
+            document.getElementById('applicationForm').classList.add('active');
+            document.getElementById('applicationForm').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function showApplicationFormFromModal() {
+            closeJobModal();
+            showApplicationForm(currentJobPosition);
+        }
+
+        function hideApplicationForm() {
+            document.getElementById('applicationForm').classList.remove('active');
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('jobModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeJobModal();
+            }
+        });
+    </script>
+</body>
+</html>

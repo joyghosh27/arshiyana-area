@@ -1,0 +1,1489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Ashiyana Design World | Premium Interior Design & Architecture</title>
+    <link rel="icon" type="image/png" href="images/logo2.png.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <meta name="description" content="Learn about Ashiyana Design World - your trusted partner for premium interior design, innovative architecture, and exceptional construction services in West Bengal.">
+    
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --success-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --warning-gradient: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            --danger-gradient: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            
+            --text-primary: #1a202c;
+            --text-secondary: #4a5568;
+            --text-light: #718096;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f7fafc;
+            
+            --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 10px 25px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 25px 50px rgba(0, 0, 0, 0.15);
+            
+            --border-radius-sm: 8px;
+            --border-radius-md: 16px;
+            --border-radius-lg: 24px;
+            --border-radius-xl: 32px;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--bg-primary);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 clamp(1rem, 4vw, 2rem);
+            width: 100%;
+        }
+
+        /* Header Styles */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .header.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .navbar {
+            padding: clamp(0.8rem, 2vw, 1.2rem) 0;
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 clamp(1rem, 4vw, 2rem);
+        }
+
+        .logo {
+            height: clamp(40px, 6vw, 60px);
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+            display: flex;              
+            align-items: center;
+        }
+
+        .logo img {
+            height: 200%;
+            width: auto;
+            object-fit: contain;
+        }
+
+            .nav-menu {
+    display: flex;
+    gap: 3rem;
+    list-style: none;
+    padding: 0;
+}
+
+/* Dark mode dropdown fix */
+[data-theme="dark"] .dropdown-menu {
+    background: #2d3748; /* dark bg */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .dropdown-menu li a {
+    color: #f7fafc; /* light text */
+}
+
+[data-theme="dark"] .dropdown-menu li a:hover {
+    background: #4a5568; /* dark hover bg */
+}
+
+
+  .nav-link {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            position: relative;
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+            white-space: nowrap;
+        }
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 0%;
+    height: 3px;
+    background: linear-gradient(90deg, rgba(255,0,0,0) 0%, red 50%, rgba(255,0,0,0) 100%);
+    box-shadow: 0 0 10px rgb(202, 125, 125), 0 0 20px rgb(123, 216, 69), 0 0 30px rgb(168, 55, 121);
+    transition: width 0.5s ease;
+    border-radius: 4px;
+    animation: none;
+}
+
+.nav-link:hover::after {
+    width: 120%;
+    animation: laser-glow 0.2s ease forwards;
+}
+@keyframes laser-glow {
+    0% {
+        box-shadow: 0 0 2px red;
+    }
+    50% {
+        box-shadow: 0 0 5px rgb(213, 216, 190), 0 0 10px rgb(202, 193, 139);
+    }
+    100% {
+        box-shadow: 0 0 10px red, 0 0 15px red, 0 0 20px red;
+    }
+}
+.nav-link:hover {
+    color: var(--glow-color);
+}
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: clamp(0.5rem, 2vw, 1rem);
+            flex-shrink: 0;
+        }
+        .theme-toggle {
+            background: none;
+            border: none;
+            padding: clamp(0.6rem, 2vw, 0.8rem);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: var(--text-secondary);
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+        }
+
+        .theme-toggle:hover {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            transform: scale(1.1);
+        }
+
+        .call-now-btn {
+            background: var(--primary-gradient);
+            color: white;
+            text-decoration: none;
+            padding: clamp(0.6rem, 2vw, 0.8rem) clamp(1rem, 3vw, 2rem);
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: clamp(0.8rem, 2vw, 1rem);
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-md);
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .call-now-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+            padding: 0.5rem;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--text-primary);
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+
+        /* About Page Styles */
+        .about-page {
+            padding: clamp(6rem, 15vw, 10rem) 0 clamp(4rem, 10vw, 6rem);
+            background: 
+                linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%),
+                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.3) 0%, transparent 50%);
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-page::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="aboutGrid" width="50" height="50" patternUnits="userSpaceOnUse"><path d="M 50 0 L 0 0 0 50" fill="none" stroke="rgba(102,126,234,0.1)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23aboutGrid)"/></svg>');
+            animation: gridMove 20s linear infinite;
+            opacity: 0.5;
+             /* background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 2000"><defs><pattern id="luxuryGrid" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M 60 0 L 0 0 0 60" fill="none" stroke="rgba(30,58,138,0.08)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23luxuryGrid)"/></svg>');
+            animation: GridMove 25s linear infinite;
+            opacity: 0.6; */
+        }
+
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        .about-hero {
+            text-align: center;
+            margin-bottom: clamp(4rem, 8vw, 6rem);
+            padding: clamp(2rem, 5vw, 4rem);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(25px);
+            border-radius: var(--border-radius-xl);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: var(--shadow-xl);
+            position: relative;
+            overflow: hidden;
+            z-index: 2;
+        }
+
+        .about-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(102, 126, 234, 0.1), transparent);
+            animation: rotate 15s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .about-hero > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        .about-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: clamp(1rem, 3vw, 1.5rem);
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+
+        .about-hero .highlight {
+            background: linear-gradient(135deg, #ef4444 0%, #f97316 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+        }
+
+        .about-hero .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ef4444, #f97316);
+            border-radius: 2px;
+            animation: underlineGrow 2s ease-out;
+        }
+
+        @keyframes underlineGrow {
+            0% { width: 0; left: 50%; }
+            100% { width: 100%; left: 0; }
+        }
+
+        .about-hero p {
+            font-size: clamp(1.1rem, 3vw, 1.6rem);
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .about-content {
+            display: grid;
+            gap: clamp(4rem, 8vw, 6rem);
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(25px);
+            border-radius: var(--border-radius-xl);
+            padding: clamp(2rem, 5vw, 4rem);
+            box-shadow: var(--shadow-xl);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .section-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(102, 234, 234, 0.05), transparent);
+            transition: left 0.8s ease;
+
+        }
+
+        .section-card:hover::before {
+            left: 100%;
+        }
+
+        .section-card > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: clamp(2rem, 4vw, 3rem);
+            line-height: 1.2;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: clamp(60px, 15vw, 100px);
+            height: 4px;
+            background: var(--primary-gradient);
+            border-radius: 2px;
+            animation: underlineGrow 2s ease-out;
+        }
+
+        .section-subtitle {
+            font-size: clamp(1.1rem, 3vw, 1.4rem);
+            color: var(--text-secondary);
+            max-width: 900px;
+            margin: 0 auto clamp(2rem, 4vw, 3rem);
+            line-height: 1.6;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: clamp(2rem, 4vw, 3rem);
+            margin-top: clamp(2rem, 4vw, 3rem);
+          
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: var(--border-radius-lg);
+            padding: clamp(2rem, 4vw, 3rem);
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.7), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .card:hover::before {
+            left: 100%;
+        }
+
+        .card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: var(--shadow-xl);
+            border-color: rgba(102, 126, 234, 0.3);
+        }
+         
+        .card > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        .card-icon {
+            width: clamp(70px, 15vw, 90px);
+            height: clamp(70px, 15vw, 90px);
+            margin: 0 auto clamp(1.5rem, 3vw, 2rem);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: clamp(2rem, 5vw, 2.5rem);
+            color: white;
+            box-shadow: var(--shadow-lg);
+            transition: all 0.5s ease;
+        }
+
+        .card:hover .card-icon {
+            transform: scale(1.1) rotate(10deg);
+        }
+
+        .card-title {
+            font-size: clamp(1.3rem, 3vw, 1.6rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: clamp(1rem, 2vw, 1.5rem);
+            line-height: 1.3;
+        }
+
+        .card-description {
+            color: var(--text-secondary);
+            font-size: clamp(1rem, 2.5vw, 1.1rem);
+            line-height: 1.6;
+        }
+
+        /* Story Section */
+        .story-card .card-icon {
+            background: var(--primary-gradient);
+        }
+
+        .story-card:nth-child(1) .card-icon {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+        }
+
+        .story-card:nth-child(2) .card-icon {
+            background: var(--success-gradient);
+        }
+
+        .story-card:nth-child(3) .card-icon {
+            background: var(--warning-gradient);
+        }
+
+        /* Values Section */
+        .values-section {
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.05) 0%, rgba(255, 255, 255, 0.95) 100%);
+        }
+
+        .value-card .card-icon {
+            background: var(--danger-gradient);
+        }
+
+        .value-card:nth-child(1) .card-icon {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+        }
+
+        .value-card:nth-child(2) .card-icon {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+        }
+
+        .value-card:nth-child(3) .card-icon {
+            background: var(--primary-gradient);
+        }
+
+        .value-card:nth-child(4) .card-icon {
+            background: var(--warning-gradient);
+        }
+
+        /* Team Section - FIXED STYLES */
+        .team-section {
+            background: linear-gradient(135deg, rgba(67, 233, 123, 0.05) 0%, rgba(255, 255, 255, 0.95) 100%);
+        }
+
+        .team-card {
+            position: relative;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 24px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+            border-color: rgba(102, 126, 234, 0.2);
+        }
+
+        /* Team Avatar Styles */
+        .team-avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            position: relative;
+            transition: all 0.4s ease;
+            overflow: hidden;
+        }
+
+        /* Photo Avatar */
+        .team-avatar.team-photo {
+            border: 4px solid #667eea;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.25);
+        }
+
+        .team-avatar.team-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.4s ease;
+        }
+
+        .team-card:hover .team-avatar.team-photo {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.35);
+        }
+
+        .team-card:hover .team-avatar.team-photo img {
+            transform: scale(1.1);
+        }
+
+        /* Icon Avatar (for Ratna Porel) */
+        .team-avatar:not(.team-photo) {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(67, 233, 123, 0.25);
+        }
+
+        .team-avatar:not(.team-photo) i {
+            font-size: 3rem;
+            color: white;
+        }
+
+        .team-card:hover .team-avatar:not(.team-photo) {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(67, 233, 123, 0.35);
+        }
+
+        /* Team Card Content */
+        .team-card .card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+
+        .team-role {
+            color: #10b981;
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            font-size: 0.9rem;
+        }
+
+        .team-social {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .team-social a {
+            width: 45px;
+            height: 45px;
+            background: rgba(102, 126, 234, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #667eea;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+            text-decoration: none;
+        }
+
+        .team-social a:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        /* Dropdown Styles */
+.dropdown {
+    position: relative;
+}
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    box-shadow: var(--shadow-md);
+    list-style: none;
+    padding: 0.5rem 0;
+    border-radius: var(--border-radius-sm);
+    z-index: 1000;
+}
+.dropdown-menu li {
+    padding: 0;
+}
+.dropdown-menu li a {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: var(--text-primary);
+    text-decoration: none;
+    white-space: nowrap;
+}
+.dropdown-menu li a:hover {
+    background: var(--bg-secondary);
+}
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+
+        /* Statistics Section */
+        .stats-section {
+            background: var(--primary-gradient);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stats-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+            pointer-events: none;
+        }
+
+        .stats-section .section-title {
+            color: white;
+            background: none;
+            -webkit-background-clip: unset;
+            -webkit-text-fill-color: unset;
+            background-clip: unset;
+        }
+
+        .stats-section .section-title::after {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: clamp(2rem, 4vw, 3rem);
+            margin-top: clamp(2rem, 4vw, 3rem);
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: clamp(2rem, 4vw, 2.5rem);
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--border-radius-lg);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .stat-number {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
+            margin-bottom: clamp(0.5rem, 1vw, 1rem);
+            color: #fbbf24;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            opacity: 0.9;
+            font-weight: 500;
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+            color: white;
+            padding: clamp(3rem, 6vw, 4rem) 0 clamp(1.5rem, 3vw, 2rem);
+            position: relative;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: clamp(2rem, 4vw, 3rem);
+            margin-bottom: clamp(2rem, 4vw, 3rem);
+            position: relative;
+            z-index: 2;
+            text-align: left;
+        }
+
+        .footer-section h3,
+        .footer-section h4 {
+            margin-bottom: clamp(1rem, 2vw, 1.5rem);
+            color: white;
+        }
+
+        .footer-section h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.5rem, 3vw, 1.8rem);
+            font-weight: 700;
+        }
+
+        .footer-section h4 {
+            font-size: clamp(1.1rem, 2.5vw, 1.2rem);
+            font-weight: 600;
+        }
+
+        .footer-section p {
+            color: #cbd5e0;
+            line-height: 1.6;
+            margin-bottom: clamp(0.8rem, 2vw, 1rem);
+            font-size: clamp(0.9rem, 2vw, 1rem);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section ul li a {
+            color: #cbd5e0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: clamp(0.9rem, 2vw, 1rem);
+        }
+
+        .footer-section ul li a:hover {
+            color: white;
+        }
+
+        .contact-info p {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+            margin-bottom: clamp(0.8rem, 2vw, 1rem);
+        }
+
+        .contact-info i {
+            color: #667eea;
+            width: 20px;
+            flex-shrink: 0;
+            margin-top: 0.2rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: clamp(0.8rem, 2vw, 1rem);
+            margin-bottom: clamp(1.5rem, 3vw, 2rem);
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .social-links a {
+            width: clamp(45px, 8vw, 50px);
+            height: clamp(45px, 8vw, 50px);
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+        }
+
+        .social-links a:hover {
+            background: #667eea;
+            transform: translateY(-3px);
+        }
+
+        .legal-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .legal-links a {
+            color: #cbd5e0;
+            text-decoration: none;
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
+            transition: color 0.3s ease;
+        }
+
+        .legal-links a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: clamp(1.5rem, 3vw, 2rem);
+            text-align: center;
+            color: #cbd5e0;
+            position: relative;
+            z-index: 2;
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-floating {
+            position: fixed;
+            bottom: clamp(1.5rem, 4vw, 2rem);
+            right: clamp(1.5rem, 4vw, 2rem);
+            z-index: 1000;
+        }
+
+        .whatsapp-btn {
+            width: clamp(60px, 12vw, 70px);
+            height: clamp(60px, 12vw, 70px);
+            background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            text-decoration: none;
+            box-shadow: var(--shadow-xl);
+            transition: all 0.3s ease;
+            animation: whatsappPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes whatsappPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.15);
+            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.4);
+        }
+
+        /* Mobile Navigation */
+        .nav-menu.mobile-active {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .nav-menu.mobile-active.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .nav-menu.mobile-active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .header-actions .call-now-btn span {
+                display: none;
+            }
+
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .contact-info p {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-hero,
+            .section-card {
+                margin: 0 1rem;
+            }
+        }
+
+        /* Dark Mode */
+        [data-theme="dark"] {
+            --text-primary: #f7fafc;
+            --text-secondary: #e2e8f0;
+            --text-light: #cbd5e0;
+            --bg-primary: #1a202c;
+            --bg-secondary: #2d3748;
+        }
+
+        [data-theme="dark"] .header {
+            background: rgba(26, 32, 44, 0.95);
+        }
+
+        [data-theme="dark"] .about-hero,
+        [data-theme="dark"] .section-card {
+            background: rgba(45, 55, 72, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        [data-theme="dark"] .card {
+            background: rgba(45, 55, 72, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        [data-theme="dark"] .hamburger span {
+            background: var(--text-primary);
+        }
+
+        [data-theme="dark"] .nav-menu.mobile-active {
+            background: rgba(26, 32, 44, 0.98);
+        }
+
+        /* Scroll Animations */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .scroll-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Footer Phone and Email Yellow */
+.contact-info p a[href^="tel:"],
+.contact-info p a[href^="mailto:"] {
+    color: #fbbf24 !important;
+    font-weight: 600;
+}
+
+.contact-info p a[href^="tel:"]:hover,
+.contact-info p a[href^="mailto:"]:hover {
+    color: #f59e0b !important;
+}
+    </style>
+</head>
+<body data-theme="light">
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="index.html" class="logo-link">
+                    <div class="logo">
+                        <img src="logo.png" alt="Ashiyana Design World">
+                    </div>
+                </a>
+                <ul class="nav-menu" id="navMenu">
+    <li><a href="index.html" class="nav-link active">Home</a></li>
+    <li><a href="about.html" class="nav-link">About</a></li>
+    <li><a href="overview.html" class="nav-link">Login</a></li>
+    <li class="dropdown">
+        <a href="#" class="nav-link">More <i class="fas fa-caret-down"></i></a>
+        <ul class="dropdown-menu">
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="estimate.html">Estimate</a></li>
+            <li><a href="careers.html">Careers</a></li>
+        </ul>
+    </li>
+</ul>
+
+                <div class="header-actions">
+                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <a href="tel:+918900758833" class="call-now-btn">
+                        <i class="fas fa-phone"></i> <span>Call Now</span>
+                    </a>
+                </div>
+                <div class="hamburger" id="hamburger" aria-label="Toggle mobile menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- About Page Content -->
+    <section class="about-page">
+        <div class="container">
+            <div class="about-hero scroll-reveal">
+                <h1>About <span class="highlight">Ashiyana Design World</span></h1>
+                <p>Transforming spaces and building dreams with innovative design solutions, expert craftsmanship, and unwavering commitment to excellence since our inception.</p>
+            </div>
+
+            <div class="about-content">
+                <!-- Our Story Section -->
+                <div class="section-card story-section scroll-reveal">
+                    <h2 class="section-title">Our Story</h2>
+                    <p class="section-subtitle">
+                        Founded with a vision to revolutionize the interior design and construction industry in West Bengal, 
+                        Ashiyana Design World has grown from a small local business to a trusted name in premium design solutions.
+                    </p>
+                    
+                    <div class="grid-container">
+                        <div class="card story-card">
+                            <div class="card-icon">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <h3 class="card-title">Our Beginning</h3>
+                            <p class="card-description">Started with a simple idea - to make beautiful, functional spaces accessible to everyone. Our journey began in Arambag with a small team of passionate designers and craftsmen.</p>
+                        </div>
+                        
+                        <div class="card story-card">
+                            <div class="card-icon">
+                                <i class="fas fa-rocket"></i>
+                            </div>
+                            <h3 class="card-title">Growth & Innovation</h3>
+                            <p class="card-description">Through continuous learning and adaptation to modern design trends, we've expanded our services to include comprehensive interior design, architecture, and specialized worker services.</p>
+                        </div>
+                        
+                        <div class="card story-card">
+                            <div class="card-icon">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <h3 class="card-title">Today's Success</h3>
+                            <p class="card-description">Today, we're proud to be a leading design firm, having completed numerous successful projects and earned the trust of hundreds of satisfied clients across West Bengal.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Our Values Section -->
+                <div class="section-card values-section scroll-reveal">
+                    <h2 class="section-title">Our Core Values</h2>
+                    <div class="grid-container">
+                        <div class="card value-card">
+                            <div class="card-icon">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <h3 class="card-title">Passion</h3>
+                            <p class="card-description">We pour our heart into every project, treating each space as if it were our own home, ensuring every detail reflects our commitment to excellence.</p>
+                        </div>
+                        
+                        <div class="card value-card">
+                            <div class="card-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <h3 class="card-title">Quality</h3>
+                            <p class="card-description">We never compromise on quality. From materials to craftsmanship, we maintain the highest standards in everything we do.</p>
+                        </div>
+                        
+                        <div class="card value-card">
+                            <div class="card-icon">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <h3 class="card-title">Trust</h3>
+                            <p class="card-description">Building lasting relationships with our clients through transparency, reliability, and consistent delivery of promised results.</p>
+                        </div>
+                        
+                        <div class="card value-card">
+                            <div class="card-icon">
+                                <i class="fas fa-leaf"></i>
+                            </div>
+                            <h3 class="card-title">Sustainability</h3>
+                            <p class="card-description">We're committed to eco-friendly practices, using sustainable materials and energy-efficient solutions wherever possible.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Our Team Section - FIXED -->
+                <div class="section-card team-section scroll-reveal">
+                    <h2 class="section-title">Meet Our Team</h2>
+                    <div class="grid-container">
+                        <div class="card team-card">
+                            <div class="team-avatar">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                            <h3 class="card-title">Ratna Porel</h3>
+                            <div class="team-role">Founder & Financer</div>
+                        </div>
+                        
+                        <div class="card team-card">
+                            <div class="team-avatar team-photo">
+                                <img src="images/person2.png" alt="Pappu Debsharma">
+                            </div>
+                            <h3 class="card-title">Pappu Debsarma</h3>
+                            <div class="team-role">CEO & Project Manager</div>
+                        </div>
+                        
+                        <div class="card team-card">
+                            <div class="team-avatar team-photo">
+                                <img src="images/person3.png" alt="Aanish Agarwal">
+                            </div>
+                            <h3 class="card-title">Aanish Agarwal</h3>
+                            <div class="team-role">Marketing Head</div>
+                        </div>
+
+                        <div class="card team-card">
+                            <div class="team-avatar team-photo">
+                                <img src="images/person4.png" alt="Partha Sarkar">
+                            </div>
+                            <h3 class="card-title">Partha Sarkar</h3>
+                            <div class="team-role">Branch Manager</div>
+                        </div>
+
+                        <div class="card team-card">
+                            <div class="team-avatar team-photo">
+                                <img src="images/person5.jpeg" alt="Bappi Barman">
+                            </div>
+                            <h3 class="card-title">Bappi Barman</h3>
+                            <div class="team-role">Web Developer</div>
+                        </div>
+
+                        <div class="card team-card">
+                            <div class="team-avatar team-photo">
+                                <img src="images/person6.jpeg" alt="Saheb Ghosh">
+                            </div>
+                            <h3 class="card-title">Saheb Ghosh</h3>
+                            <div class="team-role">Data Analyst</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Statistics Section -->
+                <div class="section-card stats-section scroll-reveal">
+                    <h2 class="section-title">Our Achievements</h2>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-number">500+</div>
+                            <div class="stat-label">Projects Completed</div>
+                        </div>
+                        
+                        <div class="stat-item">
+                            <div class="stat-number">450+</div>
+                            <div class="stat-label">Happy Clients</div>
+                        </div>
+                        
+                        <div class="stat-item">
+                            <div class="stat-number">8+</div>
+                            <div class="stat-label">Years Experience</div>
+                        </div>
+                        
+                        <div class="stat-item">
+                            <div class="stat-number">50+</div>
+                            <div class="stat-label">Skilled Workers</div>
+                        </div>
+                        
+                        <div class="stat-item">
+                            <div class="stat-number">15+</div>
+                            <div class="stat-label">Service Areas</div>
+                        </div>
+                        
+                        <div class="stat-item">
+                            <div class="stat-number">98%</div>
+                            <div class="stat-label">Client Satisfaction</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Ashiyana Design World</h3>
+                    <p>Leading the industry in premium interior design, innovative architecture, and exceptional craftsmanship. We transform spaces into extraordinary experiences that exceed expectations and inspire for generations.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Premium Services</h4>
+                    <ul>
+                        <li><a href="index.html">Luxury Interior Design</a></li>
+                        <li><a href="about.html">Innovative Architecture</a></li>
+                        <li><a href="contact.html">Design Consultation</a></li>
+                        <li><a href="estimate.html">Project Estimation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Information</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> PC Sen Rd, opposite of Arambagh Girls High School, Arambag, West Bengal 712601</p>
+                        <p><i class="fas fa-phone"></i> <a href="tel:+918900758833">+91 89007 58833</a></p>
+                        <p><i class="fas fa-envelope"></i> <a href="mailto:support@ashiyanadesignworld.in">support@ashiyanadesignworld.in</a></p>
+                        <p><i class="fas fa-clock"></i> Mon - Sat: 9:00 AM - 7:00 PM</p>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect & Legal</h4>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/ashiyana_design?igsh=cmFjcWt3bXRhdXEx" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/channel/UC7GRLyy0otq8pdhM7J-BQ9w" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+                        <a href="https://www.facebook.com/share/18mjuRc7bb/" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.linkedin.com/company/ashiyana-design-world/" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                    <div class="legal-links">
+                        <a href="privacy.html">Privacy Policy</a>
+                        <a href="terms.html">Terms & Conditions</a>
+                        <a href="vastu.html">Vastu Disclaimer</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Ashiyana Design World. All rights reserved. | Powered by Smart Software World</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <div class="whatsapp-floating">
+        <a href="https://wa.me/918900758833?text=Hi! I'm interested in learning more about your premium design services. Please provide me with detailed information." target="_blank" class="whatsapp-btn" aria-label="Contact via WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Header scroll effect
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 100) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            // Mobile menu toggle
+            const hamburger = document.getElementById('hamburger');
+            const navMenu = document.getElementById('navMenu');
+            
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('mobile-active');
+                
+                if (navMenu.classList.contains('mobile-active')) {
+                    setTimeout(() => {
+                        navMenu.classList.add('show');
+                    }, 10);
+                } else {
+                    navMenu.classList.remove('show');
+                }
+                
+                document.body.style.overflow = navMenu.classList.contains('mobile-active') ? 'hidden' : '';
+            });
+
+            // Close mobile menu when clicking on nav links
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('mobile-active', 'show');
+                    document.body.style.overflow = '';
+                });
+            });
+
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('mobile-active', 'show');
+                    document.body.style.overflow = '';
+                }
+            });
+
+            // Theme toggle
+            const themeToggle = document.getElementById('themeToggle');
+            const body = document.body;
+            
+            themeToggle.addEventListener('click', () => {
+                const currentTheme = body.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                body.setAttribute('data-theme', newTheme);
+                
+                const icon = themeToggle.querySelector('i');
+                icon.className = newTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+                
+                localStorage.setItem('theme', newTheme);
+            });
+
+            // Load saved theme
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            body.setAttribute('data-theme', savedTheme);
+            const themeIcon = themeToggle.querySelector('i');
+            themeIcon.className = savedTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+
+            // Scroll reveal animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('revealed');
+                    }
+                });
+            }, observerOptions);
+
+            const scrollElements = document.querySelectorAll('.scroll-reveal');
+            scrollElements.forEach(el => observer.observe(el));
+
+            // Counter animation for statistics
+            const statsObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCounters();
+                        statsObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            const statsSection = document.querySelector('.stats-section');
+            if (statsSection) {
+                statsObserver.observe(statsSection);
+            }
+
+            function animateCounters() {
+                const counters = document.querySelectorAll('.stat-number');
+                
+                counters.forEach(counter => {
+                    const target = parseInt(counter.textContent.replace(/\D/g, ''));
+                    const suffix = counter.textContent.replace(/\d/g, '');
+                    let current = 0;
+                    const increment = target / 80;
+                    
+                    const updateCounter = () => {
+                        if (current < target) {
+                            current += increment;
+                            counter.textContent = Math.ceil(current) + suffix;
+                            requestAnimationFrame(updateCounter);
+                        } else {
+                            counter.textContent = target + suffix;
+                        }
+                    };
+                    
+                    updateCounter();
+                });
+            }
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        const headerHeight = document.getElementById('header').offsetHeight;
+                        const targetPosition = target.offsetTop - headerHeight;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
